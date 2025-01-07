@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             MO(_FN),  HOME_Z,   HOME_X,   HOME_K,   HOME_G,    KC_W,                               KC_J,    HOME_L,   HOME_CN,  HOME_QT,  HOME_CM, LINE_SEL,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
-                                 KC_NO,    KC_NO,   MO(_NAV),   KC_SPC,  LARCANE,     RARCANE,  OS_SFT,   MO(_SYM),    KC_F6,  DRP_MENU, 
+                                 KC_NO,   QK_BOOT,   MO(_NAV),   KC_SPC,  LARCANE,     RARCANE,  OS_SFT,   MO(_SYM),    KC_F6,  DRP_MENU, 
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘ 
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
                                                     DRP_MENU, CTL_BSPC,                          CTL_DEL,  KC_F6
@@ -211,7 +211,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
 // * ---------------
 // * -- Accordion --
 // * ---------------
-bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+// bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 // ? Achordion
 bool achordion_eager_mod(uint8_t mod) {
     switch (mod) {
@@ -416,6 +416,7 @@ void process_right_magic(uint16_t keycode, uint8_t mods) {
 // * ------------
 // * -- Macros --
 // * ------------
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     // ? Achordion
     if (!process_achordion(keycode, record)) {
         return false;

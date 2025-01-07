@@ -16,5 +16,6 @@
 // #define MAX_DEFERRED_EXECUTORS 1000
 
 // Set Handedness
-#define EE_HANDS
+// #define EE_HANDS
 // #define SPLIT_HAND_PIN GP1
+// #define SPLIT_USB_DETECT

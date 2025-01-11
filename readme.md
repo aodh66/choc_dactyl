@@ -12,21 +12,25 @@ I could not find any firmware for this keyboard, so I wrote some myself.
 * Install [QMK](https://docs.qmk.fm/newbs)
 * Clone this repo into `qmk_firmware/keyboards/handwired`. Open the terminal in the previously mentioned folder.
 
-
-    git clone git@github.com:aodh66/choc_dactyl.git
+```
+git clone git@github.com:aodh66/choc_dactyl.git
+```
 
 * Navigate to your `qmk_firmware/keyboards/handwired/choc_dactyl/keymaps/aodh66` directory(folder). Rename `envEXAMPLE.h` to `env.h` and change the `"insert email string"` text to your email inside `"`quotation marks `"ExampleEmail@gmail.com"`.
 
 * Open QMK MSYS2 or however you interact with qmk in the terminal.
 
+```
+qmk compile -kb handwired/choc_dactyl -km aodh66
 
-    qmk compile -kb handwired/choc_dactyl -km aodh66
+```
 
 Note: If you want to make this your default keyboard.
 
+```
     qmk config user.keyboard=handwired/choc_dactyl
-
     qmk config user.keymap=aodh66
+```
 
 You can use the above command to designate your own keymap if you decide to make one and separate it from mine. You could also leave it and use `default`  instead of `aodh66`.
 

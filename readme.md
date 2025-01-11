@@ -10,13 +10,15 @@ I could not find any firmware for this keyboard, so I wrote some myself.
 
 ## How to compile the keymap
 * Install [QMK](https://docs.qmk.fm/newbs)
-* Clone this repo into `qmk_firmware/keyboards/handwired`.
+* Clone this repo into `qmk_firmware/keyboards/handwired`. Open the terminal in the previously mentioned folder.
+
 
     git clone git@github.com:aodh66/choc_dactyl.git
 
-* Navigate to your `qmk_firmware/keyboards/handwired/choc_dactyl/keymaps/aodh66` directory(folder). Rename `envEXAMPLE.h` to `env.h` and change the `"insert email string"` text to your email inside `"`quotation marks (`"ExampleEmail@gmail.com"`).
+* Navigate to your `qmk_firmware/keyboards/handwired/choc_dactyl/keymaps/aodh66` directory(folder). Rename `envEXAMPLE.h` to `env.h` and change the `"insert email string"` text to your email inside `"`quotation marks `"ExampleEmail@gmail.com"`.
 
 * Open QMK MSYS2 or however you interact with qmk in the terminal.
+
 
     qmk compile -kb handwired/choc_dactyl -km aodh66
 
@@ -26,15 +28,14 @@ Note: If you want to make this your default keyboard.
 
     qmk config user.keymap=aodh66
 
-You can use the above command to designate your own keymap if you decide to make one and separate it from mine. You could also leave it and use `default`  instead of `aodh66`, though the default keymap is the same.
+You can use the above command to designate your own keymap if you decide to make one and separate it from mine. You could also leave it and use `default`  instead of `aodh66`.
 
-* You should have a `handwired_choc_dactyl_aodh66.uf2` file in your qmk_firmware directory.
+* You should have a `handwired_choc_dactyl_aodh66.uf2` file in your qmk_firmware directory ready to be flashed.
 
 ## How to flash the firmware to your MCU
 Plug in your RP2040-Matrix and press both of the buttons on it, to put it in boot mode. It should show up as a USB drive in your file manager. Drag the .uf2 file from the previous step into it. It should now disconnect itself and start working. You can test with your keyboard or you can short appropriate pins to test the key functions (NOTE: Do not do this if you don't know what you are doing, or you can damage your MCU).
 
 # Current Keymap
-Keymap.c would require compiling with QMK MSYS or another method, and be flashed onto the keyboard microcontroller.
 
 ## Alpha Layout - Recurva (Colstag)
 [Recurva Breakdown](https://github.com/GalileoBlues/Recurva?tab=readme-ov-file#variations)
@@ -43,7 +44,7 @@ Keymap.c would require compiling with QMK MSYS or another method, and be flashed
 
 ## Overall Layout
 
-![picture of my choc_dactyl keymap layers](https://github.com/aodh66/qmk-magwave44/blob/main/images/my_keymap.svg)
+![picture of my choc_dactyl keymap layers]()
 
 // Insert thought process on key locations here
 

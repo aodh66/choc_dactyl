@@ -1,16 +1,16 @@
 layout: {qmk_keyboard: handwired/dactyl_manuform/4x6_5, layout_name: LAYOUT}
 layers:
-  L0:
+  ALPHA:
   - [ESC, F, R, D, P, V, QU, M, U, O, Y, LINE SEL, TAB, S]
   - [N, T, C, B, ., H, E, A, I, ENT, MO( FN), HOME Z, HOME X, HOME K]
   - [HOME G, W, J, HOME L, HOME CN, HOME QT, HOME CM, ENT, QK BOOT, '', DRP MENU, F6, MO( NAV), SPC, LARCANE, RARCANE]
   - [OS SFT, MO( SYM), CTL BSPC, '', '', CTL DEL]
-  L1:
+  AKL:
   - [ESC, B, L, D, C, V, J, Y, O, U, ',', LINE SEL, TAB, N]
   - [R, T, S, G, P, H, A, E, I, ENT, MO( FN), X, SS QU, M]
   - [W, Z, K, F, '''', ;, ., ENT, QK BOOT, '', DRP MENU, F6, MO( NAV), SPC, LARCANE, RARCANE]
   - [OS SFT, MO( SYM), CTL BSPC, '', '', CTL DEL]
-  L2:
+  NAV:
   - [ESC, ESC, CAPS, MEH, HYPR, ALT F4, PGUP, HOME, BRACES, END, BSPC, LINE COPY, TAB, LGUI]
   - [LALT, LSFT, LCTL, RESIZE, PGDN, LEFT, DOWN, UP, RGHT, MWUP, MO( FN), UNDO, CUT, COPY]
   - - PASTE
@@ -30,7 +30,7 @@ layers:
     - ''
     - ''
   - [CW TOGG, MO( NUM), '', '', '', CTL DEL]
-  L3:
+  SYM:
   - [ESC, '!', '@', '#', $, '%', ^, '&', '*', _, '|', DEL, TAB, '`']
   - [<, '{', (, '[', '=', RCTL, RSFT, RALT, RGUI, ENT, MO( FN), '~', '>', '}']
   - [), ']', +, '-', '?', \, /, ENT, '', '', DRP MENU, F6, MO( NUM), SPC, '', '']
@@ -40,7 +40,7 @@ layers:
     - ''
     - ''
     - ''
-  L4:
+  NUM:
   - [ESC, MO( FN), '', QK BOOT, '', VOLU, '-', '7', '8', '9', '*', /, TAB, LGUI]
   - [LALT, LSFT, LCTL, VOLD, ., '4', '5', '6', '0', ENT, LCTL, EMAIL, '', BSPC]
   - - DEL
@@ -65,7 +65,7 @@ layers:
     - ''
     - ''
     - ''
-  L5:
+  FN:
   - - ''
     - {t: ▽, type: trans}
     - ''

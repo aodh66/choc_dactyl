@@ -48,7 +48,7 @@ Plug in your RP2040-Matrix and press both of the buttons on it, to put it in boo
 
 ## Overall Layout
 
-![picture of my choc_dactyl keymap layers]()
+![picture of my choc_dactyl keymap layers](https://raw.githubusercontent.com/aodh66/choc_dactyl/c4688c39331713f5456516c2de462b3f7df6a261/keymaps/aodh66/keymap_drawer/my_keymap.svg)
 
 // Insert thought process on key locations here
 

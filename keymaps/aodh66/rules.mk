@@ -1,4 +1,5 @@
 SRC += features/achordion.c
+SRC += features/sentence_case.c
 VPATH += keyboards/gboards
 
 CAPS_WORD_ENABLE = yes

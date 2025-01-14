@@ -3,6 +3,8 @@
 #include "env.h"
 // ? Achordion
 #include "features/achordion.h"
+// ? Sentence Case
+#include "features/sentence_case.h"
 
 // * -----------------------------
 // * -- Home row mods (Recurva) --
@@ -63,6 +65,7 @@ enum custom_keycodes {
     RARCANE,
     EMAIL,
     COMMENT,
+    STC_TOG,
 };
 
 // * -------------------------------------------
@@ -95,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 QK_BOOT,   KC_NO,   MO(_NAV),   KC_SPC,  LARCANE,      RARCANE,  OS_SFT,   MO(_SYM),  DRP_MENU,  KC_F6,
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘ 
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-                                                    CTL_BSPC,   KC_NO,                            KC_NO,   CTL_DEL
+                                                    CTL_BSPC,   KC_NO,                            STC_TOG,   CTL_DEL
         //                                         └─────────┴─────────┘                       └─────────┴─────────┘
         ),
 
@@ -211,7 +214,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
 // * ---------------
 // * -- Accordion --
 // * ---------------
-// bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 // ? Achordion
 bool achordion_eager_mod(uint8_t mod) {
     switch (mod) {
@@ -273,6 +275,55 @@ bool achordion_streak_continue(uint16_t keycode) {
   }
   return false;  // All other keys end the streak.
 }
+
+// * -------------------
+// * -- Sentence Case --
+// * -------------------
+// ? Sentence Case
+char sentence_case_press_user(uint16_t keycode,
+                              keyrecord_t* record,
+                              uint8_t mods) {
+  if ((mods & ~(MOD_MASK_SHIFT | MOD_BIT(KC_RALT))) == 0) {
+    const bool shifted = mods & MOD_MASK_SHIFT;
+    switch (keycode) {
+      case KC_A ... KC_Z:
+        return 'a';  // Letter key.
+
+      case KC_DOT:  // . is punctuation, Shift . is a symbol (>)
+        return !shifted ? '.' : '#';
+      case KC_1:
+      case KC_SLSH:
+        return shifted ? '.' : '#';
+      case KC_EXLM:
+      case KC_QUES:
+        return '.';
+      case KC_2 ... KC_0:  // 2 3 4 5 6 7 8 9 0
+      case KC_AT ... KC_RPRN:  // @ # $ % ^ & * ( )
+      case KC_MINS ... KC_SCLN:  // - = [ ] backslash ;
+      case KC_UNDS ... KC_COLN:  // _ + { } | :
+      case KC_GRV:
+      case KC_COMM:
+        return '#';  // Symbol key.
+
+      case KC_SPC:
+        return ' ';  // Space key.
+
+      case KC_QUOT:
+        return '\'';  // Quote key.
+
+      case RARCANE:
+      case LARCANE:
+        return 'a';  // process arcane keys like letter keys for sentence case.
+    }
+  }
+
+  // Otherwise clear Sentence Case to initial state.
+  sentence_case_clear();
+  return '\0';
+}
+
+
+
 
 // * ----------------------------
 // * -- Magic/Alternate Repeat --
@@ -338,6 +389,8 @@ void process_left_magic(uint16_t keycode, uint8_t mods) {
         case  KC_DOT: { MAGIC_STRING("/",         KC_F24); } break;
 
         case  KC_SPC: { MAGIC_STRING("the ",     KC_NO); } break;
+        case  KC_TAB: { MAGIC_STRING("the ",     KC_NO); } break;
+        case  KC_ENT: { MAGIC_STRING("the ",     KC_NO); } break;
         // case  KC_F21: { MAGIC_STRING("",     KC_SPC); } break;
 
         case  KC_F23: { MAGIC_STRING(" ",     KC_SPC); } break;
@@ -386,6 +439,8 @@ void process_right_magic(uint16_t keycode, uint8_t mods) {
         case  KC_DOT: { MAGIC_STRING(".",         KC_NO); } break;
 
         case  KC_SPC: { MAGIC_STRING("the ",     KC_NO); } break;
+        case  KC_TAB: { MAGIC_STRING("the ",     KC_NO); } break;
+        case  KC_ENT: { MAGIC_STRING("the ",     KC_NO); } break;
         // case  KC_F22: { MAGIC_STRING("",     KC_SPC); } break;
 
         case  KC_F24: { MAGIC_STRING(" ",     KC_SPC); } break;
@@ -420,6 +475,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     // ? Achordion
     if (!process_achordion(keycode, record)) {
         return false;
+    }
+
+    if (!process_sentence_case(keycode, record)) { 
+        return false; 
     }
 
     // ! Might be in wrong place
@@ -497,6 +556,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             }
             break;
 
+        case STC_TOG: // Toggles Sentence Case.
+            if (record->event.pressed) {
+                sentence_case_toggle();
+            }
+            break;
+
+
         case BRACES: // Types [], {}, or <> and puts cursor between braces.
             if (record->event.pressed) {
                 clear_oneshot_mods(); // Temporarily disable mods.
@@ -522,4 +588,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 // ? Achordion
 void matrix_scan_user(void) {
     achordion_task();
+}
+
+// ? Sentence Case
+void housekeeping_task_user(void) {
+  sentence_case_task();
+  // Other tasks...
 }

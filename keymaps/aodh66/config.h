@@ -8,6 +8,7 @@
 // #define QUICK_TAP_TERM_PER_KEY
 
 #define ACHORDION_STREAK
+#define SENTENCE_CASE_TIMEOUT 2000
 
 //Combo stuff
 #define COMBO_COUNT 18

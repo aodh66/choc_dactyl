@@ -57,71 +57,69 @@ Format: Previous Key Pressed > N-gram/Word Output  | Output if opposite Arcane k
 
 ### Left Arcane Key
 ```
-a > and         | Spc
-b > bb          | Spc
-c > cc          | Spc
-d > dd          | Spc
-e > ence        | Spc
-f > ff          | Spc
-g > gg          | Spc
-h > have        | Spc
-i > ing         | Spc
-j > just        | Spc
-k > kk          | Spc
-l > lmao        | Spc
-m > ment        | Spc
-n > nn          | Spc
-o > oa          | Spc
-p > pp          | Spc
-QU > question   | Spc NOTE: I do not use a standard Q key, I have a QU key and Q on a combo.
-r > rr          | Spc
-s > ss          | Spc
-t > tt          | Spc
-u > under       | Spc
-v > vv          | Spc
-w > ww          | Spc
-x > xx          | Spc
-y > you         | Spc
-z > zz          | Spc
-. > ./          | Spc
-' > 've         | Spc
-DISABLED || , > ", but "    | "the"
-Spc > " the "   | Nothing
+a > and         | 
+b > bb          | 
+c > cc          | 
+d > dd          | 
+e > ent         | ention
+f > ff          | 
+g > gg          | 
+h > her         | 
+i > ing         | 
+j > just        | 
+k > kk          | 
+l > lmao        | 
+m > ment        | mention
+n > nn          | 
+o > oa          | 
+p > pp          | 
+qu > question   | NOTE: I do not use a standard Q key, I have a QU key and Q on a combo.
+r > rr          | 
+s > ss          | ssion
+t > tt          | 
+u > ue          | 
+v > vv          | 
+w > ww          | 
+x > xx          | 
+y > you         | 
+z > zz          | 
+. > ./          | 
+' > 've         | 
+Spc > " the"    | 
 ```
 
 ## Right Arcane Key
 ```
-a > aa          | Spc
-b > because     | Spc
-c > comp        | Spc
-d > dent        | Spc
-e > ee          | Spc
-f > from        | Spc
-g > general     | Spc
-h > hh          | Spc
-i > ii          | Spc
-j > jj          | Spc
-k > keyboard    | Spc
-l > ll          | Spc
-m > mm          | Spc
-n > n't         | Spc
-o > oo          | Spc
-p > people      | Spc
-QU > q          | Spc NOTE: I do not use a standard Q key, I have a QU key and Q on a combo.
-r > rn          | Spc
-s > sion        | Spc
-t > tion        | Spc
-u > uu          | Spc
-v > very        | Spc
-w > which       | Spc
-x >             | Spc
-y > yy          | Spc
-z >             | Spc
-. > ..          | Spc
-? > ??          | Spc
-/ > //          | Spc
-; > ;;          | Spc
-' > 'll         | Spc
-DISABLED || , > ", and "    | "the"
-Spc > " the "   | Nothing
-`
+a > aa          | 
+b > because     | 
+c > comp        | 
+d > dent        | 
+e > ee          | 
+f > from        | 
+g > great       | 
+h > hh          | 
+i > ii          | 
+j > jj          | 
+k > know        | 
+l > ll          | llmao
+m > mm          | mment
+n > n't         | 
+o > oo          | 
+p > people      | 
+qu > q          | NOTE: I do not use a standard Q key, I have a QU key and Q on a combo.
+r > rn          | 
+s > sion        | 
+t > tion        | 
+u > uu          | 
+v >             | 
+w > with        | wither
+x >             | 
+y > yy          | 
+z >             | 
+. > ..          | ../
+? > ??          | 
+/ > //          | 
+; > ;;          | 
+' > 'll         | 
+Spc > " the"   | 
+```

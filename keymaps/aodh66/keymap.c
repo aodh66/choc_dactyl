@@ -46,7 +46,8 @@
 
 #define ALT_F4 LALT(KC_F4)
 #define OS_SFT OSM(MOD_LSFT)
-#define CTL_BSPC LCTL(KC_BSPC)
+#define OS_RSFT OSM(MOD_RSFT)
+// #define CTL_BSPC LCTL(KC_BSPC)
 #define CTL_DEL LCTL(KC_DEL)
 #define DRP_MENU LSFT(KC_F10)
 #define KC_MWUP KC_MS_WH_UP
@@ -66,6 +67,7 @@ enum custom_keycodes {
     EMAIL,
     COMMENT,
     STC_TOG,
+    CTL_BSPC,
 };
 
 // * -------------------------------------------
@@ -95,10 +97,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             MO(_FN),  HOME_Z,   HOME_X,   HOME_K,   HOME_G,    KC_W,                               KC_J,    HOME_L,   HOME_CN,  HOME_QT,  HOME_CM,  KC_ENT,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
-                                QK_BOOT,   KC_NO,   MO(_NAV),   KC_SPC,  LARCANE,      RARCANE,  OS_SFT,   MO(_SYM),  DRP_MENU,  KC_F6,
+                                QK_BOOT,   KC_NO,   MO(_NAV),   KC_SPC,  LARCANE,      RARCANE,  KC_SPC,   MO(_SYM),  DRP_MENU,  KC_F6,
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘ 
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-                                                    CTL_BSPC,   KC_NO,                            STC_TOG,   CTL_DEL
+                                                     OS_RSFT,  CTL_BSPC,                         CTL_BSPC,  OS_SFT
         //                                         └─────────┴─────────┘                       └─────────┴─────────┘
         ),
 
@@ -132,7 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  KC_NO,    KC_NO,    KC_TRNS,   KC_NO,    KC_NO,        KC_NO,   CW_TOGG,  MO(_NUM),  DRP_MENU,  KC_F6, 
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘ 
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-                                                      KC_NO,    KC_NO,                            KC_NO,   CTL_DEL
+                                                      KC_NO,    KC_NO,                           CTL_DEL,  CW_TOGG 
         //                                         └─────────┴─────────┘                       └─────────┴─────────┘
         ),
 
@@ -141,7 +143,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐                         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
             KC_ESC,   KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,                            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_UNDS,  KC_PIPE,  KC_DEL,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_TAB,   KC_GRV,   KC_LT,    KC_LCBR,  KC_LPRN,  KC_LBRC,                            KC_EQL,   KC_RCTL,  KC_RSFT,  KC_RALT,  KC_RGUI,  KC_ENT,
+            STC_TOG,  KC_GRV,   KC_LT,    KC_LCBR,  KC_LPRN,  KC_LBRC,                            KC_EQL,   KC_RCTL,  KC_RSFT,  KC_RALT,  KC_RGUI,  KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             MO(_FN),  KC_TILD,  KC_GT,    KC_RCBR,  KC_RPRN,  KC_RBRC,                            KC_PLUS,  KC_MINS,  KC_QUES,  KC_BSLS,  KC_SLSH,  KC_ENT,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
@@ -149,7 +151,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  KC_NO,    KC_NO,   MO(_NUM),  KC_SPC,    KC_NO,        KC_NO,    KC_NO,   KC_TRNS,   DRP_MENU,  KC_F6, 
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘ 
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-                                                    CTL_BSPC,  KC_NO,                             KC_NO,    KC_NO
+                                                     CW_TOGG,  CTL_DEL,                           KC_NO,    KC_NO
         //                                         └─────────┴─────────┘                       └─────────┴─────────┘
         ),
 
@@ -239,42 +241,42 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
 }
 
 // Typing Streak
-uint16_t achordion_streak_chord_timeout(
-    uint16_t tap_hold_keycode, uint16_t next_keycode) {
-  if (IS_QK_LAYER_TAP(tap_hold_keycode)) {
-    return 0;  // Disable streak detection on layer-tap keys.
-  }
+// uint16_t achordion_streak_chord_timeout(
+//     uint16_t tap_hold_keycode, uint16_t next_keycode) {
+//   if (IS_QK_LAYER_TAP(tap_hold_keycode)) {
+//     return 0;  // Disable streak detection on layer-tap keys.
+//   }
 
-  // Otherwise, tap_hold_keycode is a mod-tap key.
-  uint8_t mod = mod_config(QK_MOD_TAP_GET_MODS(tap_hold_keycode));
-  if ((mod & MOD_LSFT) != 0) {
-    return 100;  // A shorter streak timeout for Shift mod-tap keys.
-  } else {
-    return 240;  // A longer timeout otherwise.
-  }
-}
+//   // Otherwise, tap_hold_keycode is a mod-tap key.
+//   uint8_t mod = mod_config(QK_MOD_TAP_GET_MODS(tap_hold_keycode));
+//   if ((mod & MOD_LSFT) != 0) {
+//     return 100;  // A shorter streak timeout for Shift mod-tap keys.
+//   } else {
+//     return 240;  // A longer timeout otherwise.
+//   }
+// }
 
-bool achordion_streak_continue(uint16_t keycode) {
-  // If mods other than shift or AltGr are held, don't continue the streak.
-  if (get_mods() & (MOD_MASK_CG | MOD_BIT_LALT)) return false;
-  // This function doesn't get called for holds, so convert to tap keycodes.
-  if (IS_QK_MOD_TAP(keycode)) {
-    keycode = QK_MOD_TAP_GET_TAP_KEYCODE(keycode);
-  }
-  if (IS_QK_LAYER_TAP(keycode)) {
-    keycode = QK_LAYER_TAP_GET_TAP_KEYCODE(keycode);
-  }
-  // Regular letters and punctuation continue the streak.
-  if (keycode >= KC_A && keycode <= KC_Z) return true;
-  switch (keycode) {
-    case KC_DOT:
-    case KC_COMMA:
-    case KC_QUOTE:
-    case KC_SPACE:
-      return true;
-  }
-  return false;  // All other keys end the streak.
-}
+// bool achordion_streak_continue(uint16_t keycode) {
+//   // If mods other than shift or AltGr are held, don't continue the streak.
+//   if (get_mods() & (MOD_MASK_CG | MOD_BIT_LALT)) return false;
+//   // This function doesn't get called for holds, so convert to tap keycodes.
+//   if (IS_QK_MOD_TAP(keycode)) {
+//     keycode = QK_MOD_TAP_GET_TAP_KEYCODE(keycode);
+//   }
+//   if (IS_QK_LAYER_TAP(keycode)) {
+//     keycode = QK_LAYER_TAP_GET_TAP_KEYCODE(keycode);
+//   }
+//   // Regular letters and punctuation continue the streak.
+//   if (keycode >= KC_A && keycode <= KC_Z) return true;
+//   switch (keycode) {
+//     case KC_DOT:
+//     case KC_COMMA:
+//     case KC_QUOTE:
+//     case KC_SPACE:
+//       return true;
+//   }
+//   return false;  // All other keys end the streak.
+// }
 
 // * -------------------
 // * -- Sentence Case --
@@ -323,7 +325,30 @@ char sentence_case_press_user(uint16_t keycode,
 }
 
 
+// * ---------------
+// * -- Caps Word --
+// * ---------------
+bool caps_word_press_user(uint16_t keycode) {
+    switch (keycode) {
+        // Keycodes that continue Caps Word, with shift applied.
+        case KC_A ... KC_Z:
+        // case KC_MINS:
+        case LARCANE:
+        case RARCANE:
+            add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
+            return true;
 
+        // Keycodes that continue Caps Word, without shifting.
+        case KC_1 ... KC_0:
+        case KC_BSPC:
+        case KC_DEL:
+        case KC_UNDS:
+            return true;
+
+        default:
+            return false;  // Deactivate Caps Word.
+    }
+}
 
 // * ----------------------------
 // * -- Magic/Alternate Repeat --
@@ -350,24 +375,21 @@ char sentence_case_press_user(uint16_t keycode,
 // the Repeat Key is pressed next, it produces `repeat_keycode`.
 #define MAGIC_STRING(str, repeat_keycode) \
         magic_send_string_P(PSTR(str), (repeat_keycode))
- 
+
 void magic_send_string_P(const char* str, uint16_t repeat_keycode) {
-    uint8_t saved_mods = 0;
- 
-  if (is_caps_word_on()) { // If Caps Word is on, save the mods and hold Shift.
-    saved_mods = get_mods();
-    register_mods(MOD_BIT(KC_LSFT));
-  }
- 
-  send_string_with_delay_P(str, TAP_CODE_DELAY);  // Send the string.
-  set_last_keycode(repeat_keycode); // 2024-03-09 Disabled sending of string for mag-rep / rep-mag consistency.
- 
-  // If Caps Word is on, restore the mods.
-  if (is_caps_word_on()) {
-    set_mods(saved_mods);
-  }
+    // If Caps Word is on, output the magic with shift held, then reapply Caps Word.
+    if (is_caps_word_on()) { 
+        register_code(KC_LSFT);// Hold Shift.
+        send_string_with_delay_P(str, TAP_CODE_DELAY);  // Send the string.
+        set_last_keycode(repeat_keycode); // 2024-03-09 Disabled sending of string for mag-rep / rep-mag consistency.
+        unregister_code(KC_LSFT); // Stops holding Shift.
+        caps_word_on(); // Reapply Caps Word.
+    } else {
+        send_string_with_delay_P(str, TAP_CODE_DELAY);  // Send the string.
+        set_last_keycode(repeat_keycode); // 2024-03-09 Disabled sending of string for mag-rep / rep-mag consistency.
+    }
 }
- 
+
  // LMAGIC definitions
 void process_left_magic(uint16_t keycode, uint8_t mods) {
     switch (keycode) {
@@ -376,36 +398,36 @@ void process_left_magic(uint16_t keycode, uint8_t mods) {
         case KC_D: { MAGIC_STRING("d",         KC_F24); } break;
         case  KC_F: { MAGIC_STRING("f",         KC_F24); } break;
         case  KC_J: { MAGIC_STRING("ust",       KC_F24); } break;
-        case  KC_M: { MAGIC_STRING("ent",       KC_F24); } break;
+        case  KC_M: { MAGIC_STRING("ent",       KC_T); } break;
         case  KC_O: { MAGIC_STRING("a",         KC_F24); } break;
         case  KC_P: { MAGIC_STRING("p",     KC_F24); } break;
         case  SS_QU: { MAGIC_STRING("estion",         KC_F24); } break;
         case KC_R: { MAGIC_STRING("r",         KC_F24); } break;
-        case  KC_U: { MAGIC_STRING("nder",         KC_F24); } break;
+        case  KC_U: { MAGIC_STRING("e",         KC_F24); } break;
         case KC_V: { MAGIC_STRING("v",  KC_F24); } break;
         case  KC_W: { MAGIC_STRING("w",      KC_F24); } break;
         case  KC_Y: { MAGIC_STRING("ou",         KC_F24); } break;
 
         case  KC_DOT: { MAGIC_STRING("/",         KC_F24); } break;
 
-        case  KC_SPC: { MAGIC_STRING("the ",     KC_NO); } break;
-        case  KC_TAB: { MAGIC_STRING("the ",     KC_NO); } break;
-        case  KC_ENT: { MAGIC_STRING("the ",     KC_NO); } break;
+        case  KC_SPC: { MAGIC_STRING("the",     KC_NO); } break;
+        case  KC_TAB: { MAGIC_STRING("the",     KC_NO); } break;
+        case  KC_ENT: { MAGIC_STRING("the",     KC_NO); } break;
         // case  KC_F21: { MAGIC_STRING("",     KC_SPC); } break;
 
-        case  KC_F23: { MAGIC_STRING(" ",     KC_SPC); } break;
+        // case  KC_F23: { MAGIC_STRING(" ",     KC_SPC); } break;
 
     // Bottom Home Row
         case KC_A: { MAGIC_STRING("nd",         KC_F24); } break;
         case  KC_C: { MAGIC_STRING("c",        KC_F24); } break;
-        case KC_E: { MAGIC_STRING("nce",         KC_F24); } break;
+        case KC_E: { MAGIC_STRING("nt",         KC_T); } break;
         case  HOME_G: { MAGIC_STRING("g",    KC_F24); } break;
-        case KC_H: { MAGIC_STRING("ave",         KC_F24); } break;
+        case KC_H: { MAGIC_STRING("er",         KC_F24); } break;
         case KC_I: { MAGIC_STRING("ng",         KC_F24); } break;
         case  HOME_K: { MAGIC_STRING("k",         KC_F24); } break;
         case HOME_L: { MAGIC_STRING("mao",         KC_F24); } break;
         case  KC_N: { MAGIC_STRING("n",       KC_F24); } break;
-        case KC_S: { MAGIC_STRING("s",         KC_F24); } break;
+        case KC_S: { MAGIC_STRING("s",         KC_S); } break;
         case  KC_T: { MAGIC_STRING("t",         KC_F24); } break;
         case HOME_X: { MAGIC_STRING("x",         KC_F24); } break;
         case  HOME_Z: { MAGIC_STRING("z",         KC_F24); } break;
@@ -424,36 +446,36 @@ void process_right_magic(uint16_t keycode, uint8_t mods) {
         case KC_D: { MAGIC_STRING("ent",         KC_F23); } break;
         case  KC_F: { MAGIC_STRING("rom",         KC_F23); } break;
         case  KC_J: { MAGIC_STRING("j",         KC_F23); } break;
-        case  KC_M: { MAGIC_STRING("m",         KC_F23); } break;
+        case  KC_M: { MAGIC_STRING("m",         KC_M); } break;
         case  KC_O: { MAGIC_STRING("o",         KC_F23); } break;
         case  KC_P: { MAGIC_STRING("eople",         KC_F23); } break;
-        case  SS_QU: { tap_code(KC_BSPC); MAGIC_STRING("",      KC_F23); } break;
+        case  SS_QU: { tap_code(KC_BSPC); MAGIC_STRING("",      KC_F23); } break; 
         case KC_R: { MAGIC_STRING("n",         KC_F23); } break;
         case  KC_U: { MAGIC_STRING("u",         KC_F23); } break;
-        case KC_V: { MAGIC_STRING("ery",         KC_F23); } break;
-        case  KC_W: { MAGIC_STRING("hich",         KC_F23); } break;
+        // case KC_V: { MAGIC_STRING("ery",         KC_F23); } break;
+        case  KC_W: { MAGIC_STRING("ith",         KC_H); } break;
         case  KC_Y: { MAGIC_STRING("y",       KC_F23); } break;
 
-        case  KC_QUES: { MAGIC_STRING("?",       KC_F23); } break;
-        case  KC_SLSH: { MAGIC_STRING("/",       KC_F23); } break;
-        case  KC_DOT: { MAGIC_STRING(".",         KC_NO); } break;
 
-        case  KC_SPC: { MAGIC_STRING("the ",     KC_NO); } break;
-        case  KC_TAB: { MAGIC_STRING("the ",     KC_NO); } break;
-        case  KC_ENT: { MAGIC_STRING("the ",     KC_NO); } break;
+        case  KC_SLSH: { MAGIC_STRING("/",       KC_F23); } break;
+        case  KC_DOT: { MAGIC_STRING(".",         KC_DOT); } break;
+
+        case  KC_SPC: { MAGIC_STRING("the",     KC_NO); } break;
+        case  KC_TAB: { MAGIC_STRING("the",     KC_NO); } break;
+        case  KC_ENT: { MAGIC_STRING("the",     KC_NO); } break;
         // case  KC_F22: { MAGIC_STRING("",     KC_SPC); } break;
 
-        case  KC_F24: { MAGIC_STRING(" ",     KC_SPC); } break;
+        // case  KC_F24: { MAGIC_STRING(" ",     KC_SPC); } break;
 
         // Bottom Home Row
         case KC_A: { MAGIC_STRING("a",        KC_F23); } break;
         case  KC_C: { MAGIC_STRING("omp",         KC_F23); } break;
         case KC_E: { MAGIC_STRING("e",         KC_F23); } break;
-        case  HOME_G: { MAGIC_STRING("eneral",         KC_F23); } break;
+        case  HOME_G: { MAGIC_STRING("reat",         KC_F23); } break;
         case KC_H: { MAGIC_STRING("h",         KC_F23); } break;
         case KC_I: { MAGIC_STRING("i",        KC_F23); } break;
-        case  HOME_K: { MAGIC_STRING("eyboard",         KC_F23); } break;
-        case HOME_L: { MAGIC_STRING("l",         KC_F23); } break;
+        case  HOME_K: { MAGIC_STRING("now",         KC_F23); } break;
+        case HOME_L: { MAGIC_STRING("l",         HOME_L); } break;
         case  KC_N: { MAGIC_STRING("'t",         KC_F23); } break;
         case KC_S: { MAGIC_STRING("ion",         KC_F23); } break;
         case  KC_T: { MAGIC_STRING("ion",         KC_F23); } break;
@@ -515,6 +537,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         case SS_QU:
             if (record->event.pressed) {
                 SEND_STRING("qu");
+                // if (is_caps_word_on()) { 
+                //     register_code(KC_LSFT);// Hold Shift.
+                //     SEND_STRING("qu");
+                //     unregister_code(KC_LSFT); // Stops holding Shift.
+                //     caps_word_on(); // Reapply Caps Word.
+                // } else {
+                //     SEND_STRING("qu");
+                // }
             }
             break;
 
@@ -562,6 +592,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             }
             break;
 
+        case CTL_BSPC:
+            if (record->event.pressed) {
+                clear_oneshot_mods(); // Temporarily disable mods.
+                register_code(KC_LCTL);// Hold Ctrl.
+                register_code(KC_BSPC);   // Hit backspace to delete word. 
+            } else {
+                unregister_code(KC_BSPC); // Stops holding backspace.
+                unregister_code(KC_LCTL); // Stops holding Ctrl.
+
+            }
+            break;
+
 
         case BRACES: // Types [], {}, or <> and puts cursor between braces.
             if (record->event.pressed) {
@@ -592,6 +634,7 @@ void matrix_scan_user(void) {
 
 // ? Sentence Case
 void housekeeping_task_user(void) {
-  sentence_case_task();
+    achordion_task();
+    sentence_case_task();
   // Other tasks...
 }

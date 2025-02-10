@@ -68,6 +68,8 @@ enum custom_keycodes {
     COMMENT,
     STC_TOG,
     CTL_BSPC,
+    NAV,
+    SYM,
 };
 
 // * -------------------------------------------
@@ -97,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             MO(_FN),  HOME_Z,   HOME_X,   HOME_K,   HOME_G,    KC_W,                               KC_J,    HOME_L,   HOME_CN,  HOME_QT,  HOME_CM,  KC_ENT,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
-                                QK_BOOT,   KC_NO,   MO(_NAV),   KC_SPC,  LARCANE,      RARCANE,  KC_SPC,   MO(_SYM),  DRP_MENU,  KC_F6,
+                                QK_BOOT,   KC_NO,      NAV,    KC_SPC,   LARCANE,      RARCANE,  KC_SPC,     SYM,     DRP_MENU,  KC_F6,
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘ 
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
                                                      OS_RSFT,  CTL_BSPC,                         CTL_BSPC,  OS_SFT
@@ -131,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             MO(_FN),   UNDO,     CUT,      COPY,     PASTE,    KC_F6,                             KC_BSPC,  NXT_TAB,  KC_TAB,   KC_DEL,   COMMENT,  KC_MWDN,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
-                                 KC_NO,    KC_NO,    KC_TRNS,   KC_NO,    KC_NO,        KC_NO,   CW_TOGG,  MO(_NUM),  DRP_MENU,  KC_F6, 
+                                 KC_NO,    KC_NO,    KC_TRNS,   KC_NO,    KC_NO,        KC_NO,   CW_TOGG,  KC_TRNS,   DRP_MENU,  KC_F6, 
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘ 
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
                                                       KC_NO,    KC_NO,                           CTL_DEL,  CW_TOGG 
@@ -148,7 +150,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             MO(_FN),  KC_TILD,  KC_GT,    KC_RCBR,  KC_RPRN,  KC_RBRC,                            KC_PLUS,  KC_MINS,  KC_QUES,  KC_BSLS,  KC_SLSH,  KC_ENT,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
-                                 KC_NO,    KC_NO,   MO(_NUM),  KC_SPC,    KC_NO,        KC_NO,    KC_NO,   KC_TRNS,   DRP_MENU,  KC_F6, 
+                                 KC_NO,    KC_NO,   KC_TRNS,   KC_SPC,    KC_NO,        KC_NO,    KC_NO,   KC_TRNS,   DRP_MENU,  KC_F6, 
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘ 
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
                                                      CW_TOGG,  CTL_DEL,                           KC_NO,    KC_NO
@@ -620,6 +622,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 }
                 tap_code(KC_LEFT);   // Move cursor between braces.
                 register_mods(mods); // Restore mods.
+            }
+
+        case NAV:
+            if (record->event.pressed) {
+                layer_on(_NAV);
+                update_tri_layer(_NAV, _SYM, _NUM);
+            } else {
+                layer_off(_NAV);
+                update_tri_layer(_NAV, _SYM, _NUM);
+            }
+            return false;
+        case SYM:
+            if (record->event.pressed) {
+                layer_on(_SYM);
+                update_tri_layer(_NAV, _SYM, _NUM);
+            } else {
+                layer_off(_SYM);
+                update_tri_layer(_NAV, _SYM, _NUM);
             }
             return false;
     }

@@ -133,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             MO(_FN),   UNDO,     CUT,      COPY,     PASTE,    KC_F6,                             KC_BSPC,  NXT_TAB,  KC_TAB,   KC_DEL,   COMMENT,  KC_MWDN,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
-                                 KC_NO,    KC_NO,    KC_TRNS,   KC_NO,    KC_NO,        KC_NO,   CW_TOGG,  KC_TRNS,   DRP_MENU,  KC_F6, 
+                                 KC_NO,    KC_NO,    KC_TRNS,   KC_NO,    KC_NO,       KC_ENT,   KC_TRNS,  KC_TRNS,   DRP_MENU,  KC_F6, 
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘ 
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
                                                       KC_NO,    KC_NO,                           CTL_DEL,  CW_TOGG 
@@ -150,7 +150,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             MO(_FN),  KC_TILD,  KC_GT,    KC_RCBR,  KC_RPRN,  KC_RBRC,                            KC_PLUS,  KC_MINS,  KC_QUES,  KC_BSLS,  KC_SLSH,  KC_ENT,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
-                                 KC_NO,    KC_NO,   KC_TRNS,   KC_SPC,    KC_NO,        KC_NO,    KC_NO,   KC_TRNS,   DRP_MENU,  KC_F6, 
+                                 KC_NO,    KC_NO,   KC_TRNS,  KC_TRNS,  KC_TRNS,        KC_NO,    KC_NO,   KC_TRNS,   DRP_MENU,  KC_F6, 
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘ 
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
                                                      CW_TOGG,  CTL_DEL,                           KC_NO,    KC_NO
@@ -416,6 +416,9 @@ void process_left_magic(uint16_t keycode, uint8_t mods) {
         case  KC_TAB: { MAGIC_STRING("the",     KC_NO); } break;
         case  KC_ENT: { MAGIC_STRING("the",     KC_NO); } break;
         // case  KC_F21: { MAGIC_STRING("",     KC_SPC); } break;
+
+        case KC_GRV: { MAGIC_STRING("``",    KC_F24); tap_code(KC_ENT);  } break;
+
 
         // case  KC_F23: { MAGIC_STRING(" ",     KC_SPC); } break;
 

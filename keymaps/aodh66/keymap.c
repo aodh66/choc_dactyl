@@ -609,7 +609,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             }
             break;
 
-
         case BRACES: // Types [], {}, or <> and puts cursor between braces.
             if (record->event.pressed) {
                 clear_oneshot_mods(); // Temporarily disable mods.
@@ -626,6 +625,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 tap_code(KC_LEFT);   // Move cursor between braces.
                 register_mods(mods); // Restore mods.
             }
+            break;
 
         case NAV:
             if (record->event.pressed) {
@@ -635,7 +635,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 layer_off(_NAV);
                 update_tri_layer(_NAV, _SYM, _NUM);
             }
-            return false;
+            break;
+            
         case SYM:
             if (record->event.pressed) {
                 layer_on(_SYM);
@@ -644,7 +645,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 layer_off(_SYM);
                 update_tri_layer(_NAV, _SYM, _NUM);
             }
-            return false;
+            break;
     }
 
     return true;

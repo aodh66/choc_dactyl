@@ -424,6 +424,7 @@ void process_left_magic(uint16_t keycode, uint8_t mods) {
         case  KC_SPC:  { MAGIC_STRING("the",    KC_NO);  } break;
         case  KC_TAB:  { MAGIC_STRING("the",    KC_NO);  } break;
         case  KC_ENT:  { MAGIC_STRING("the",    KC_NO);  } break;
+        case  KC_BSPC: { MAGIC_STRING("the",    KC_NO);  } break;
 
         case  KC_GRV:  { MAGIC_STRING("``",     KC_F24); tap_code(KC_ENT); } break;
         // case  KC_F21: { MAGIC_STRING("",     KC_SPC); } break;
@@ -473,6 +474,7 @@ void process_right_magic(uint16_t keycode, uint8_t mods) {
         case  KC_SPC:  { MAGIC_STRING("the",    KC_NO);  } break;
         case  KC_TAB:  { MAGIC_STRING("the",    KC_NO);  } break;
         case  KC_ENT:  { MAGIC_STRING("the",    KC_NO);  } break;
+        case  KC_BSPC: { MAGIC_STRING("the",    KC_NO);  } break;
 
         // case  KC_F22: { MAGIC_STRING("",     KC_SPC); } break;
         // case  KC_F24: { MAGIC_STRING(" ",     KC_SPC); } break;
@@ -610,7 +612,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             } else {
                 unregister_code(KC_BSPC); // Stops holding backspace.
                 unregister_code(KC_LCTL); // Stops holding Ctrl.
-
+                set_last_keycode(KC_BSPC); // Sets the last keycode as backspace so you can type "the" using magic afterwards.
             }
             break;
 

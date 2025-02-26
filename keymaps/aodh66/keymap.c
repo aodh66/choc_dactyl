@@ -392,106 +392,111 @@ void magic_send_string_P(const char* str, uint16_t repeat_keycode) {
     }
 }
 
- // LMAGIC definitions
+ //* LMAGIC definitions
 void process_left_magic(uint16_t keycode, uint8_t mods) {
     switch (keycode) {
-    // Universal
-        case  KC_B: { MAGIC_STRING("b",    KC_F24); } break;
-        case KC_D: { MAGIC_STRING("d",         KC_F24); } break;
-        case  KC_F: { MAGIC_STRING("f",         KC_F24); } break;
-        case  KC_J: { MAGIC_STRING("ust",       KC_F24); } break;
-        case  KC_M: { MAGIC_STRING("ent",       KC_T); } break;
-        case  KC_O: { MAGIC_STRING("a",         KC_F24); } break;
-        case  KC_P: { MAGIC_STRING("p",     KC_F24); } break;
-        case  SS_QU: { MAGIC_STRING("estion",         KC_F24); } break;
-        case KC_R: { MAGIC_STRING("r",         KC_F24); } break;
-        case  KC_U: { MAGIC_STRING("e",         KC_F24); } break;
-        case KC_V: { MAGIC_STRING("v",  KC_F24); } break;
-        case  KC_W: { MAGIC_STRING("w",      KC_F24); } break;
-        case  KC_Y: { MAGIC_STRING("ou",         KC_F24); } break;
+    //*  Universal
+        case  KC_B:    { MAGIC_STRING("b",      KC_F24); } break;
+        case  KC_D:    { MAGIC_STRING("d",      KC_F24); } break;
+        case  KC_F:    { MAGIC_STRING("f",      KC_F24); } break;
+        case  KC_J:    { MAGIC_STRING("ust",    KC_F24); } break;
+        case  KC_M:    { MAGIC_STRING("ent",    KC_T);   } break;
+        case  KC_O:    { MAGIC_STRING("a",      KC_F24); } break;
+        case  KC_P:    { MAGIC_STRING("p",      KC_F24); } break;
+        case  SS_QU:   { MAGIC_STRING("estion", KC_F24); } break;
+        case  KC_R:    { MAGIC_STRING("r",      KC_F24); } break;
+        case  KC_U:    { MAGIC_STRING("e",      KC_F24); } break;
+        case  KC_V:    { MAGIC_STRING("v",      KC_F24); } break;
+        case  KC_W:    { MAGIC_STRING("w",      KC_F24); } break;
+        case  KC_Y:    { MAGIC_STRING("ou",     KC_F24); } break;
 
-        case  KC_DOT: { MAGIC_STRING("/",         KC_F24); } break;
+        case  KC_DOT:  { MAGIC_STRING("/",      KC_F24); } break;
+        case  KC_LT:   { MAGIC_STRING("=",      KC_F24); } break;
+        case  KC_GT:   { MAGIC_STRING("=",      KC_F24); } break;
+        case  KC_QUES: { MAGIC_STRING("?",      KC_F24); } break;
+        case  KC_PIPE: { MAGIC_STRING("|",      KC_F24); } break;
+        case  KC_UNDS: { MAGIC_STRING("_",      KC_F24); } break;
+        case  KC_AMPR: { MAGIC_STRING("&",      KC_F24); } break;
+        case  KC_SLSH: { MAGIC_STRING("/",      KC_F24); } break;
+        case  KC_MINS: { MAGIC_STRING("=",      KC_F24); } break;
+        case  KC_PLUS: { MAGIC_STRING("=",      KC_F24); } break;
 
-        case  KC_SPC: { MAGIC_STRING("the",     KC_NO); } break;
-        case  KC_TAB: { MAGIC_STRING("the",     KC_NO); } break;
-        case  KC_ENT: { MAGIC_STRING("the",     KC_NO); } break;
+        case  KC_SPC:  { MAGIC_STRING("the",    KC_NO);  } break;
+        case  KC_TAB:  { MAGIC_STRING("the",    KC_NO);  } break;
+        case  KC_ENT:  { MAGIC_STRING("the",    KC_NO);  } break;
+
+        case  KC_GRV:  { MAGIC_STRING("``",     KC_F24); tap_code(KC_ENT); } break;
         // case  KC_F21: { MAGIC_STRING("",     KC_SPC); } break;
-
-        case KC_GRV: { MAGIC_STRING("``",    KC_F24); tap_code(KC_ENT);  } break;
-
-
         // case  KC_F23: { MAGIC_STRING(" ",     KC_SPC); } break;
 
-    // Bottom Home Row
-        case KC_A: { MAGIC_STRING("nd",         KC_F24); } break;
-        case  KC_C: { MAGIC_STRING("c",        KC_F24); } break;
-        case KC_E: { MAGIC_STRING("nt",         KC_T); } break;
-        case  HOME_G: { MAGIC_STRING("g",    KC_F24); } break;
-        case KC_H: { MAGIC_STRING("er",         KC_F24); } break;
-        case KC_I: { MAGIC_STRING("ng",         KC_F24); } break;
-        case  HOME_K: { MAGIC_STRING("k",         KC_F24); } break;
-        case HOME_L: { MAGIC_STRING("mao",         KC_F24); } break;
-        case  KC_N: { MAGIC_STRING("n",       KC_F24); } break;
-        case KC_S: { MAGIC_STRING("s",         KC_S); } break;
-        case  KC_T: { MAGIC_STRING("t",         KC_F24); } break;
-        case HOME_X: { MAGIC_STRING("x",         KC_F24); } break;
-        case  HOME_Z: { MAGIC_STRING("z",         KC_F24); } break;
-        case HOME_QT: { MAGIC_STRING("ve",    KC_F24); } break;
+    //*  Bottom Home Row
+        case  KC_A:    { MAGIC_STRING("nd",     KC_F24); } break;
+        case  KC_C:    { MAGIC_STRING("c",      KC_F24); } break;
+        case  KC_E:    { MAGIC_STRING("nt",     KC_T);   } break;
+        case  HOME_G:  { MAGIC_STRING("g",      KC_F24); } break;
+        case  KC_H:    { MAGIC_STRING("er",     KC_F24); } break;
+        case  KC_I:    { MAGIC_STRING("ng",     KC_F24); } break;
+        case  HOME_K:  { MAGIC_STRING("k",      KC_F24); } break;
+        case  HOME_L:  { MAGIC_STRING("mao",    KC_F24); } break;
+        case  KC_N:    { MAGIC_STRING("n",      KC_F24); } break;
+        case  KC_S:    { MAGIC_STRING("s",      KC_S);   } break;
+        case  KC_T:    { MAGIC_STRING("t",      KC_F24); } break;
+        case  HOME_X:  { MAGIC_STRING("x",      KC_F24); } break;
+        case  HOME_Z:  { MAGIC_STRING("z",      KC_F24); } break;
+        case  HOME_QT: { MAGIC_STRING("ve",     KC_F24); } break;
 
         // case HOME_CM: { MAGIC_STRING(" and ",    KC_SPC); } break;
         // case HOME_CM: { MAGIC_STRING(" but ",    KC_SPC); } break;
     }
 }
 
- // RMAGIC definitions
+ //* RMAGIC definitions
 void process_right_magic(uint16_t keycode, uint8_t mods) {
     switch (keycode) {
-                // Universal
-        case  KC_B: { MAGIC_STRING("ecause",         KC_F23); } break;
-        case KC_D: { MAGIC_STRING("ent",         KC_F23); } break;
-        case  KC_F: { MAGIC_STRING("rom",         KC_F23); } break;
-        case  KC_J: { MAGIC_STRING("j",         KC_F23); } break;
-        case  KC_M: { MAGIC_STRING("m",         KC_M); } break;
-        case  KC_O: { MAGIC_STRING("o",         KC_F23); } break;
-        case  KC_P: { MAGIC_STRING("eople",         KC_F23); } break;
-        case  SS_QU: { tap_code(KC_BSPC); MAGIC_STRING("",      KC_F23); } break; 
-        case KC_R: { MAGIC_STRING("n",         KC_F23); } break;
-        case  KC_U: { MAGIC_STRING("u",         KC_F23); } break;
-        // case KC_V: { MAGIC_STRING("ery",         KC_F23); } break;
-        case  KC_W: { MAGIC_STRING("ith",         KC_H); } break;
-        case  KC_Y: { MAGIC_STRING("y",       KC_F23); } break;
+    //* Universal
+        case  KC_B:    { MAGIC_STRING("ecause", KC_F23); } break;
+        case  KC_D:    { MAGIC_STRING("ent",    KC_F23); } break;
+        case  KC_F:    { MAGIC_STRING("rom",    KC_F23); } break;
+        case  KC_J:    { MAGIC_STRING("j",      KC_F23); } break;
+        case  KC_M:    { MAGIC_STRING("m",      KC_M);   } break;
+        case  KC_O:    { MAGIC_STRING("o",      KC_F23); } break;
+        case  KC_P:    { MAGIC_STRING("eople",  KC_F23); } break;
+        case  SS_QU:   { tap_code(KC_BSPC); MAGIC_STRING("", KC_F23); } break; 
+        case  KC_R:    { MAGIC_STRING("n",      KC_F23); } break;
+        case  KC_U:    { MAGIC_STRING("u",      KC_F23); } break;
+        // case KC_V: { MAGIC_STRING("ery",     KC_F23); } break;
+        case  KC_W:    { MAGIC_STRING("ith",    KC_H);   } break;
+        case  KC_Y:    { MAGIC_STRING("y",      KC_F23); } break;
 
+        case  KC_DOT:  { MAGIC_STRING(".",      KC_DOT); } break; 
 
-        case  KC_SLSH: { MAGIC_STRING("/",       KC_F23); } break;
-        case  KC_DOT: { MAGIC_STRING(".",         KC_DOT); } break;
+        case  KC_SPC:  { MAGIC_STRING("the",    KC_NO);  } break;
+        case  KC_TAB:  { MAGIC_STRING("the",    KC_NO);  } break;
+        case  KC_ENT:  { MAGIC_STRING("the",    KC_NO);  } break;
 
-        case  KC_SPC: { MAGIC_STRING("the",     KC_NO); } break;
-        case  KC_TAB: { MAGIC_STRING("the",     KC_NO); } break;
-        case  KC_ENT: { MAGIC_STRING("the",     KC_NO); } break;
         // case  KC_F22: { MAGIC_STRING("",     KC_SPC); } break;
-
         // case  KC_F24: { MAGIC_STRING(" ",     KC_SPC); } break;
 
         // Bottom Home Row
-        case KC_A: { MAGIC_STRING("a",        KC_F23); } break;
-        case  KC_C: { MAGIC_STRING("omp",         KC_F23); } break;
-        case KC_E: { MAGIC_STRING("e",         KC_F23); } break;
-        case  HOME_G: { MAGIC_STRING("reat",         KC_F23); } break;
-        case KC_H: { MAGIC_STRING("h",         KC_F23); } break;
-        case KC_I: { MAGIC_STRING("i",        KC_F23); } break;
-        case  HOME_K: { MAGIC_STRING("now",         KC_F23); } break;
-        case HOME_L: { MAGIC_STRING("l",         HOME_L); } break;
-        case  KC_N: { MAGIC_STRING("'t",         KC_F23); } break;
-        case KC_S: { MAGIC_STRING("ion",         KC_F23); } break;
-        case  KC_T: { MAGIC_STRING("ion",         KC_F23); } break;
-        case HOME_X: { MAGIC_STRING("",        KC_F23); } break;
-        case  HOME_Z: { MAGIC_STRING("",         KC_F23); } break;
+        case  KC_A:    { MAGIC_STRING("a",      KC_F23); } break;
+        case  KC_C:    { MAGIC_STRING("omp",    KC_F23); } break;
+        case  KC_E:    { MAGIC_STRING("e",      KC_F23); } break;
+        case  HOME_G:  { MAGIC_STRING("reat",   KC_F23); } break;
+        case  KC_H:    { MAGIC_STRING("h",      KC_F23); } break;
+        case  KC_I:    { MAGIC_STRING("i",      KC_F23); } break;
+        case  HOME_K:  { MAGIC_STRING("now",    KC_F23); } break;
+        case  HOME_L:  { MAGIC_STRING("l",      HOME_L); } break;
+        case  KC_N:    { MAGIC_STRING("'t",     KC_F23); } break;
+        case  KC_S:    { MAGIC_STRING("ion",    KC_F23); } break;
+        case  KC_T:    { MAGIC_STRING("ion",    KC_F23); } break;
+        case  HOME_X:  { MAGIC_STRING("",       KC_F23); } break;
+        case  HOME_Z:  { MAGIC_STRING("",       KC_F23); } break;
 
+        case  HOME_CN: { tap_code(KC_BSPC); MAGIC_STRING("::", KC_F23); } break;
+        case  HOME_QT: { MAGIC_STRING("ll",     KC_F23); } break;
         // case HOME_CM: { MAGIC_STRING(" but ",    KC_SPC); } break;
-        case HOME_CN: { tap_code(KC_BSPC); MAGIC_STRING("::",    KC_F23); } break;
         // case KC_COLN: { MAGIC_STRING(":",    KC_SPC); } break;
         // case HOME_CM: { MAGIC_STRING(" and ",    KC_SPC); } break;
-        case HOME_QT: { MAGIC_STRING("ll",    KC_F23); } break;
     }
 }
 

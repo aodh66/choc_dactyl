@@ -57,70 +57,75 @@ Format: Previous Key Pressed > N-gram/Word Output  | Output if opposite Arcane k
 
 ### Left Arcane Key
 ```
-a > and         | 
-b > bb          | 
-c > cc          | 
-d > dd          | 
-e > ent         | ention
-f > ff          | 
-g > gg          | 
-h > her         | 
-i > ing         | 
-j > just        | 
-k > kk          | 
-l > lmao        | 
-m > ment        | mention
-n > nn          | 
-o > oa          | 
-p > pp          | 
-qu > question   | NOTE: I do not use a standard Q key, I have a QU key and Q on a combo.
-r > rr          | 
-s > ss          | ssion
-t > tt          | 
-u > ue          | 
-v > vv          | 
-w > ww          | 
-x > xx          | 
-y > you         | 
-z > zz          | 
-. > ./          | 
-' > 've         | 
-Spc > " the"    | 
-` > ```(Enter)```| 
+a   ->   and      | 
+b   ->   bb       | 
+c   ->   cc       | 
+d   ->   dd       | 
+e   ->   ent      | ention
+f   ->   ff       | 
+g   ->   gg       | 
+h   ->   her      | 
+i   ->   ing      | 
+j   ->   just     | 
+k   ->   kk       | 
+l   ->   lmao     | 
+m   ->   ment     | mention
+n   ->   nn       | 
+o   ->   oa       | 
+p   ->   pp       | 
+qu  ->   question | NOTE: I do not use a standard Q key, I have a QU key and Q on a combo.
+r   ->   rr       | 
+s   ->   ss       | ssion
+t   ->   tt       | 
+u   ->   ue       | 
+v   ->   vv       | 
+w   ->   ww       | 
+x   ->   xx       | 
+y   ->   you      | 
+z   ->   zz       | 
+.   ->   ./       | 
+'   ->   've      |
+?   ->   ??       | 
+&   ->   &&       | 
+|   ->   ||       | 
+_   ->   __       | 
+/   ->   //       | 
+<   ->   <=       |
+>   ->   >=       |
+Spc ->   " the"   | 
+`   ->   ```(Enter)```| 
 ```
 
 ## Right Arcane Key
 ```
-a > aa          | 
-b > because     | 
-c > comp        | 
-d > dent        | 
-e > ee          | 
-f > from        | 
-g > great       | 
-h > hh          | 
-i > ii          | 
-j > jj          | 
-k > know        | 
-l > ll          | llmao
-m > mm          | mment
-n > n't         | 
-o > oo          | 
-p > people      | 
-qu > q          | NOTE: I do not use a standard Q key, I have a QU key and Q on a combo.
-r > rn          | 
-s > sion        | 
-t > tion        | 
-u > uu          | 
-v >             | 
-w > with        | wither
-x >             | 
-y > yy          | 
-z >             | 
-. > ..          | ../
-? > ??          | 
-/ > //          | 
-; > ::          | 
-' > 'll         | 
-Spc > " the"   | 
+a   ->   aa       | 
+b   ->   because  | 
+c   ->   comp     | 
+d   ->   dent     | 
+e   ->   ee       | 
+f   ->   from     | 
+g   ->   great    | 
+h   ->   hh       | 
+i   ->   ii       | 
+j   ->   jj       | 
+k   ->   know     | 
+l   ->   ll       | llmao
+m   ->   mm       | mment
+n   ->   n't      | 
+o   ->   oo       | 
+p   ->   people   | 
+qu  ->   q        | NOTE: I do not use a standard Q key, I have a QU key and Q on a combo.
+r   ->   rn       | 
+s   ->   sion     | 
+t   ->   tion     | 
+u   ->   uu       | 
+v   ->            | 
+w   ->   with     | wither
+x   ->            | 
+y   ->   yy       | 
+z   ->            | 
+.   ->   ..       | ../
+;   ->   ::       | 
+'   ->   'll      | 
+Spc ->   " the"   | 
 ```

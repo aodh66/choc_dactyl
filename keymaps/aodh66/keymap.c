@@ -485,7 +485,7 @@ void process_right_magic(uint16_t keycode, uint8_t mods) {
         case  KC_A:    { MAGIC_STRING("a",      KC_F23); } break;
         case  KC_C:    { MAGIC_STRING("omp",    KC_F23); } break;
         case  KC_E:    { MAGIC_STRING("e",      KC_F23); } break;
-        case  HOME_G:  { MAGIC_STRING("reat",   KC_F23); } break;
+        case  HOME_G:  { MAGIC_STRING("eneral",   KC_F23); } break;
         case  KC_H:    { MAGIC_STRING("h",      KC_F23); } break;
         case  KC_I:    { MAGIC_STRING("i",      KC_F23); } break;
         case  HOME_K:  { MAGIC_STRING("now",    KC_F23); } break;

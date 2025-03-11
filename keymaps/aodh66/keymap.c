@@ -102,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 QK_BOOT,   KC_NO,      NAV,    KC_SPC,   LARCANE,      RARCANE,  KC_SPC,     SYM,     DRP_MENU,  KC_F6,
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘ 
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-                                                     OS_RSFT,  CTL_BSPC,                         CTL_BSPC,  OS_SFT
+                                                     CTL_BSPC,  OS_SFT,                         OS_RSFT,  CTL_BSPC
         //                                         └─────────┴─────────┘                       └─────────┴─────────┘
         ),
 
@@ -136,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  KC_NO,    KC_NO,    KC_TRNS,   KC_NO,    KC_NO,       KC_ENT,   KC_TRNS,  KC_TRNS,   DRP_MENU,  KC_F6, 
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘ 
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-                                                      KC_NO,    KC_NO,                           CTL_DEL,  CW_TOGG 
+                                                      KC_NO,    KC_NO,                           CW_TOGG,  CTL_DEL
         //                                         └─────────┴─────────┘                       └─────────┴─────────┘
         ),
 
@@ -153,7 +153,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  KC_NO,    KC_NO,   KC_TRNS,  KC_TRNS,  KC_TRNS,        KC_NO,    KC_NO,   KC_TRNS,   DRP_MENU,  KC_F6, 
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘ 
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-                                                     CW_TOGG,  CTL_DEL,                           KC_NO,    KC_NO
+                                                     CTL_DEL,  CW_TOGG,                           KC_NO,    KC_NO
         //                                         └─────────┴─────────┘                       └─────────┴─────────┘
         ),
 

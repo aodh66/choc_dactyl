@@ -608,10 +608,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
         case CTL_BSPC:
             if (record->event.pressed) {
-                clear_oneshot_mods(); // Temporarily disable mods.
-                register_code(KC_LCTL);// Hold Ctrl.
-                register_code(KC_BSPC);   // Hit backspace to delete word. 
-            } else {
+                if (oneshot_mods & MOD_MASK_SHIFT) {
+                    clear_oneshot_mods(); // Clear current one shot shift.
+                } else {
+                    clear_oneshot_mods(); // Clear all current oneshot mods.
+                    register_code(KC_LCTL);// Hold Ctrl.
+                    register_code(KC_BSPC);   // Hit backspace to delete word. 
+                }
                 unregister_code(KC_BSPC); // Stops holding backspace.
                 unregister_code(KC_LCTL); // Stops holding Ctrl.
                 set_last_keycode(KC_BSPC); // Sets the last keycode as backspace so you can type "the" using magic afterwards.

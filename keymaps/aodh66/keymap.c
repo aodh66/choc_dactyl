@@ -615,6 +615,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                     register_code(KC_LCTL);// Hold Ctrl.
                     register_code(KC_BSPC);   // Hit backspace to delete word. 
                 }
+            } else {
                 unregister_code(KC_BSPC); // Stops holding backspace.
                 unregister_code(KC_LCTL); // Stops holding Ctrl.
                 set_last_keycode(KC_BSPC); // Sets the last keycode as backspace so you can type "the" using magic afterwards.

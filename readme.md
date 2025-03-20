@@ -16,7 +16,9 @@ I could not find any firmware for this keyboard, so I wrote some myself.
 git clone git@github.com:aodh66/choc_dactyl.git
 ```
 
-* Navigate to your `qmk_firmware/keyboards/handwired/choc_dactyl/keymaps/aodh66` directory(folder). Rename `envEXAMPLE.h` to `env.h` and change the `"insert email string"` text to your email inside `"`quotation marks `"ExampleEmail@gmail.com"`.
+* Navigate to your `qmk_firmware/keyboards/handwired/choc_dactyl/keymaps/aodh66` directory(folder). Rename `envEXAMPLE.h` to `env.h` and change the `"insert email string"` text to your email(s) inside `"`quotation marks `"ExampleEmail@gmail.com"`.
+
+* Note that you should check that the correct half of the keyboard is uncommented in the `config.h` file. You want `#define MASTER_LEFT` uncommented if you are plugging in your left half (as is standard), or `#define MASTER_RIGHT` if you are plugging in the right half. Comment the one you are not currently flashing.
 
 * Open QMK MSYS2 or however you interact with qmk in the terminal.
 

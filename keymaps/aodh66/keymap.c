@@ -65,6 +65,7 @@ enum custom_keycodes {
     LARCANE,
     RARCANE,
     EMAIL,
+    EMAIL2,
     COMMENT,
     STC_TOG,
     CTL_BSPC,
@@ -102,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 QK_BOOT,   KC_NO,      NAV,    KC_SPC,   LARCANE,      RARCANE,  KC_SPC,     SYM,     DRP_MENU,  KC_F6,
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘ 
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-                                                     CTL_BSPC,  OS_SFT,                         OS_RSFT,  CTL_BSPC
+                                                     CTL_BSPC,  OS_SFT,                          OS_RSFT,  CTL_BSPC
         //                                         └─────────┴─────────┘                       └─────────┴─────────┘
         ),
 
@@ -165,7 +166,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             KC_TAB,   KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL, KC_VOLD,                             KC_DOT,    KC_4,     KC_5,     KC_6,    KC_0,     KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_LCTL,   EMAIL,    KC_NO,   KC_BSPC,  KC_DEL,  KC_MPLY,                             KC_PLUS,   KC_1,     KC_2,     KC_3,    KC_SLSH,  KC_BSLS,
+            KC_LCTL,   EMAIL,   EMAIL2,   KC_BSPC,  KC_DEL,  KC_MPLY,                             KC_PLUS,   KC_1,     KC_2,     KC_3,    KC_SLSH,  KC_BSLS,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
                                  KC_NO,    KC_NO,    KC_TRNS,   KC_NO,    KC_NO,        KC_NO,    KC_NO,   KC_TRNS,   DRP_MENU,  KC_F6, 
@@ -565,6 +566,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         case EMAIL:
             if (record->event.pressed) {
                 SEND_STRING(EMAIL_STRING);
+            }
+            break;
+
+        case EMAIL2:
+            if (record->event.pressed) {
+                SEND_STRING(EMAIL_STRING_2);
             }
             break;
 

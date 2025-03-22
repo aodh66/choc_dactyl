@@ -10,8 +10,11 @@
 #define ACHORDION_STREAK
 #define SENTENCE_CASE_TIMEOUT 2000
 
+// Caps Word
+#define CAPS_WORD_INVERT_ON_SHIFT
+
 //Combo stuff
-#define COMBO_COUNT 18
+#define COMBO_COUNT 2
 
 // SM_Tap Dance
 // #define MAX_DEFERRED_EXECUTORS 1000
@@ -20,6 +23,6 @@
 // #define EE_HANDS
 // #define SPLIT_HAND_PIN GP1
 #define SPLIT_USB_DETECT
-// #define MASTER_LEFT
-#define MASTER_RIGHT
+#define MASTER_LEFT
+// #define MASTER_RIGHT
 #define SERIAL_USE_MULTI_TRANSACTION

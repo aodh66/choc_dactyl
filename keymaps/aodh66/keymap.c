@@ -243,44 +243,6 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
     return 800; // Use a timeout of 800 ms.
 }
 
-// Typing Streak
-// uint16_t achordion_streak_chord_timeout(
-//     uint16_t tap_hold_keycode, uint16_t next_keycode) {
-//   if (IS_QK_LAYER_TAP(tap_hold_keycode)) {
-//     return 0;  // Disable streak detection on layer-tap keys.
-//   }
-
-//   // Otherwise, tap_hold_keycode is a mod-tap key.
-//   uint8_t mod = mod_config(QK_MOD_TAP_GET_MODS(tap_hold_keycode));
-//   if ((mod & MOD_LSFT) != 0) {
-//     return 100;  // A shorter streak timeout for Shift mod-tap keys.
-//   } else {
-//     return 240;  // A longer timeout otherwise.
-//   }
-// }
-
-// bool achordion_streak_continue(uint16_t keycode) {
-//   // If mods other than shift or AltGr are held, don't continue the streak.
-//   if (get_mods() & (MOD_MASK_CG | MOD_BIT_LALT)) return false;
-//   // This function doesn't get called for holds, so convert to tap keycodes.
-//   if (IS_QK_MOD_TAP(keycode)) {
-//     keycode = QK_MOD_TAP_GET_TAP_KEYCODE(keycode);
-//   }
-//   if (IS_QK_LAYER_TAP(keycode)) {
-//     keycode = QK_LAYER_TAP_GET_TAP_KEYCODE(keycode);
-//   }
-//   // Regular letters and punctuation continue the streak.
-//   if (keycode >= KC_A && keycode <= KC_Z) return true;
-//   switch (keycode) {
-//     case KC_DOT:
-//     case KC_COMMA:
-//     case KC_QUOTE:
-//     case KC_SPACE:
-//       return true;
-//   }
-//   return false;  // All other keys end the streak.
-// }
-
 // * -------------------
 // * -- Sentence Case --
 // * -------------------
@@ -346,6 +308,8 @@ bool caps_word_press_user(uint16_t keycode) {
         case KC_BSPC:
         case KC_DEL:
         case KC_UNDS:
+        case NAV:
+        case SYM:
             return true;
 
         default:

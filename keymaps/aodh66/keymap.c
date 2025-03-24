@@ -199,21 +199,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // * -- Tapping Term --
 // * ------------------
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
-  switch (keycode) {
-    // Increase the tapping term a little for slower ring and pinky fingers.
-    // case HOME_S:
-    // case HOME_N:
-    // case HOME_A:
-    // case HOME_I:
-    case HOME_Z:
-    case HOME_X:
-    case HOME_QT:
-    case HOME_CM:
-      return TAPPING_TERM + 15;
-
-    default:
-      return TAPPING_TERM;
-  }
+    switch (keycode) {
+        // Increase the tapping term a little for slower ring and pinky fingers.
+        // case HOME_S:
+        // case HOME_N:
+        // case HOME_A:
+        // case HOME_I:
+        case HOME_Z:
+        case HOME_X:
+        case HOME_QT:
+        case HOME_CM:
+            return TAPPING_TERM + 15;
+        
+        default:
+            return TAPPING_TERM;
+    }
 }
 
 // * ---------------
@@ -233,8 +233,11 @@ bool achordion_eager_mod(uint8_t mod) {
     }
 }
 
-bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
-                     uint16_t other_keycode, keyrecord_t* other_record) {
+bool achordion_chord(
+    uint16_t tap_hold_keycode, 
+    keyrecord_t* tap_hold_record,
+    uint16_t other_keycode, keyrecord_t* other_record
+) {
     // Otherwise, follow the opposite hands rule.
     return achordion_opposite_hands(tap_hold_record, other_record);
 }
@@ -247,48 +250,49 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
 // * -- Sentence Case --
 // * -------------------
 // ? Sentence Case
-char sentence_case_press_user(uint16_t keycode,
-                              keyrecord_t* record,
-                              uint8_t mods) {
-  if ((mods & ~(MOD_MASK_SHIFT | MOD_BIT(KC_RALT))) == 0) {
-    const bool shifted = mods & MOD_MASK_SHIFT;
-    switch (keycode) {
-      case KC_A ... KC_Z:
-        return 'a';  // Letter key.
+char sentence_case_press_user(
+    uint16_t keycode,
+    keyrecord_t* record,
+    uint8_t mods
+) {
+    if ((mods & ~(MOD_MASK_SHIFT | MOD_BIT(KC_RALT))) == 0) {
+        const bool shifted = mods & MOD_MASK_SHIFT;
+        switch (keycode) {
+            case KC_A ... KC_Z:
+                return 'a';  // Letter key.
 
-      case KC_DOT:  // . is punctuation, Shift . is a symbol (>)
-        return !shifted ? '.' : '#';
-      case KC_1:
-      case KC_SLSH:
-        return shifted ? '.' : '#';
-      case KC_EXLM:
-      case KC_QUES:
-        return '.';
-      case KC_2 ... KC_0:  // 2 3 4 5 6 7 8 9 0
-      case KC_AT ... KC_RPRN:  // @ # $ % ^ & * ( )
-      case KC_MINS ... KC_SCLN:  // - = [ ] backslash ;
-      case KC_UNDS ... KC_COLN:  // _ + { } | :
-      case KC_GRV:
-      case KC_COMM:
-        return '#';  // Symbol key.
+            case KC_DOT:  // . is punctuation, Shift . is a symbol (>)
+                return !shifted ? '.' : '#';
+            case KC_1:
+            case KC_SLSH:
+                return shifted ? '.' : '#';
+            case KC_EXLM:
+            case KC_QUES:
+                return '.';
+            case KC_2 ... KC_0:  // 2 3 4 5 6 7 8 9 0
+            case KC_AT ... KC_RPRN:  // @ # $ % ^ & * ( )
+            case KC_MINS ... KC_SCLN:  // - = [ ] backslash ;
+            case KC_UNDS ... KC_COLN:  // _ + { } | :
+            case KC_GRV:
+            case KC_COMM:
+                return '#';  // Symbol key.
 
-      case KC_SPC:
-        return ' ';  // Space key.
+            case KC_SPC:
+                return ' ';  // Space key.
 
-      case KC_QUOT:
-        return '\'';  // Quote key.
+            case KC_QUOT:
+                return '\'';  // Quote key.
 
-      case RARCANE:
-      case LARCANE:
-        return 'a';  // process arcane keys like letter keys for sentence case.
+            case RARCANE:
+            case LARCANE:
+                return 'a';  // process arcane keys like letter keys for sentence case.
+        }
     }
-  }
 
-  // Otherwise clear Sentence Case to initial state.
-  sentence_case_clear();
-  return '\0';
+    // Otherwise clear Sentence Case to initial state.
+    sentence_case_clear();
+    return '\0';
 }
-
 
 // * ---------------
 // * -- Caps Word --

@@ -205,7 +205,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  KC_NO,   KC_NO,      KC_1,    KC_SPC,    KC_2,      TO(_ALPHA),  KC_SPC,    SYM,     DRP_MENU,  KC_F6,
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-                                                     KC_LCTL,   KC_3,                          OS_RSFT,  CTL_BSPC
+                                                      KC_3,    KC_LCTL,                          OS_RSFT,  CTL_BSPC
         //                                         └─────────┴─────────┘                       └─────────┴─────────┘
         )
 // ! add a comma above if you're going to add another layer below

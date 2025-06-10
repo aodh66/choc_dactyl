@@ -87,7 +87,7 @@ enum custom_keycodes {
 #define _SYM 3
 #define _NUM 4
 #define _FN 5
-#define _LOL 6
+#define _GAME 6
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -179,7 +179,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // * Function
     [_FN] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐                         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            TO(_LOL),    KC_TRNS,   KC_NO,   QK_BOOT,  KC_VOLD,  KC_VOLU,                            KC_NO,     KC_F7,    KC_F8,    KC_F9,   KC_NO,   TO(_AKL),
+           TO(_GAME), KC_TRNS,   KC_NO,   QK_BOOT,  KC_VOLD,  KC_VOLU,                            KC_NO,     KC_F7,    KC_F8,    KC_F9,   KC_NO,   TO(_AKL),
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             KC_NO,    KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  KC_MPLY,                            KC_F12,    KC_F4,    KC_F5,    KC_F6,   KC_F10,   STC_TOG,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
@@ -193,7 +193,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //                                         └─────────┴─────────┘                       └─────────┴─────────┘
         ),
 
-    [_LOL] = LAYOUT(
+    [_GAME] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐                         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
             KC_ESC,    KC_F,     KC_R,     KC_D,     KC_P,     KC_V,                               SS_QU,    KC_M,     KC_U,     KC_O,     KC_Y,   LINE_SEL,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
@@ -202,10 +202,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_LCTL,   KC_Z,     KC_X,     KC_K,     KC_G,     KC_W,                               KC_J,    HOME_L,   HOME_CN,  HOME_QT,  HOME_CM,  KC_ENT,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
-                                KC_NO,   KC_NO,      KC_1,    KC_SPC,   KC_2,      TO(_ALPHA),  KC_SPC,     SYM,     DRP_MENU,  KC_F6,
+                                 KC_NO,   KC_NO,      KC_1,    KC_SPC,    KC_2,      TO(_ALPHA),  KC_SPC,    SYM,     DRP_MENU,  KC_F6,
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-                                                     KC_LCTL,  KC_3,                          OS_RSFT,  CTL_BSPC
+                                                     KC_LCTL,   KC_3,                          OS_RSFT,  CTL_BSPC
         //                                         └─────────┴─────────┘                       └─────────┴─────────┘
         )
 // ! add a comma above if you're going to add another layer below
@@ -328,6 +328,7 @@ bool caps_word_press_user(uint16_t keycode) {
         case KC_BSPC:
         case KC_DEL:
         case KC_UNDS:
+        case KC_DOT:
         case NAV:
         case SYM:
             return true;

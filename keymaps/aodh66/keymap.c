@@ -338,9 +338,9 @@ bool caps_word_press_user(uint16_t keycode) {
     }
 }
 
-// * ----------------------------
-// * -- Magic/Alternate Repeat --
-// * ----------------------------
+// * -------------------------------------
+// * -- Arcane (Magic/Alternate Repeat) --
+// * -------------------------------------
     // ! Arcane Keys based on Empressabyss' setup
     // Function with caps word, ditched one shot shift
     bool remember_last_key_user(uint16_t keycode, keyrecord_t* record,
@@ -464,6 +464,7 @@ void process_right_magic(uint16_t keycode, uint8_t mods) {
         case  KC_ENT:  { MAGIC_STRING("the",    KC_NO);  } break;
         case  KC_BSPC: { MAGIC_STRING("the",    KC_NO);  } break;
 
+        case  KC_GRV:  { MAGIC_STRING("``",     KC_F24); } break;
         // case  KC_F22: { MAGIC_STRING("",     KC_SPC); } break;
         // case  KC_F24: { MAGIC_STRING(" ",     KC_SPC); } break;
 

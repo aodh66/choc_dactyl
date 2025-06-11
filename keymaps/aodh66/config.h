@@ -23,6 +23,6 @@
 // #define EE_HANDS
 // #define SPLIT_HAND_PIN GP1
 #define SPLIT_USB_DETECT
-// #define MASTER_LEFT
-#define MASTER_RIGHT
+#define MASTER_LEFT
+// #define MASTER_RIGHT
 #define SERIAL_USE_MULTI_TRANSACTION

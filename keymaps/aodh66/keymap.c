@@ -9,14 +9,7 @@
 // * -----------------------------
 // * -- Home row mods (Recurva) --
 // * -----------------------------
-// ? Achordion
 // Left-hand
-    // Default Home Row
-// #define HOME_S LGUI_T(KC_S)
-// #define HOME_N LALT_T(KC_N)
-// #define HOME_T LSFT_T(KC_T)
-// #define HOME_C LCTL_T(KC_C)
-
     // Bottom Home Row
 #define HOME_Z LGUI_T(KC_Z)
 #define HOME_X LALT_T(KC_X)
@@ -24,12 +17,6 @@
 #define HOME_G LCTL_T(KC_G)
 
 // Right-hand
-    // Default Home Row
-// #define HOME_H RCTL_T(KC_H)
-// #define HOME_E RSFT_T(KC_E)
-// #define HOME_A LALT_T(KC_A)
-// #define HOME_I RGUI_T(KC_I)
-
     // Bottom Home Row
 #define HOME_L RCTL_T(KC_L)
 #define HOME_CN RSFT_T(KC_SCLN)
@@ -53,6 +40,9 @@
 #define KC_MWUP KC_MS_WH_UP
 #define KC_MWDN KC_MS_WH_DOWN
 
+#define NAV QK_TRI_LAYER_LOWER
+#define SYM QK_TRI_LAYER_UPPER
+
 // * ------------------------
 // * -- Macro Declarations --
 // * ------------------------
@@ -69,8 +59,8 @@ enum custom_keycodes {
     COMMENT,
     STC_TOG,
     CTL_BSPC,
-    NAV,
-    SYM,
+    // NAV,
+    // SYM,
 };
 
 // * -------------------------------------------
@@ -219,10 +209,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
     switch (keycode) {
         // Increase the tapping term a little for slower ring and pinky fingers.
-        // case HOME_S:
-        // case HOME_N:
-        // case HOME_A:
-        // case HOME_I:
         case HOME_Z:
         case HOME_X:
         case HOME_QT:
@@ -633,25 +619,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             }
             break;
 
-        case NAV:
-            if (record->event.pressed) {
-                layer_on(_NAV);
-                update_tri_layer(_NAV, _SYM, _NUM);
-            } else {
-                layer_off(_NAV);
-                update_tri_layer(_NAV, _SYM, _NUM);
-            }
-            break;
-
-        case SYM:
-            if (record->event.pressed) {
-                layer_on(_SYM);
-                update_tri_layer(_NAV, _SYM, _NUM);
-            } else {
-                layer_off(_SYM);
-                update_tri_layer(_NAV, _SYM, _NUM);
-            }
-            break;
+        // case NAV:
+        //     if (record->event.pressed) {
+        //         layer_on(_NAV);
+        //         update_tri_layer(_NAV, _SYM, _NUM);
+        //     } else {
+        //         layer_off(_NAV);
+        //         update_tri_layer(_NAV, _SYM, _NUM);
+        //     }
+        //     break;
+        //
+        // case SYM:
+        //     if (record->event.pressed) {
+        //         layer_on(_SYM);
+        //         update_tri_layer(_NAV, _SYM, _NUM);
+        //     } else {
+        //         layer_off(_SYM);
+        //         update_tri_layer(_NAV, _SYM, _NUM);
+        //     }
+        //     break;
     }
 
     return true;

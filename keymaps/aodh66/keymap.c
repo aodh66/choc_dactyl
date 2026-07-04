@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             MO(_FN),  HOME_Z,   HOME_X,   HOME_K,   HOME_G,    KC_W,                               KC_J,    HOME_L,   HOME_CN,  HOME_QT,  HOME_CM,  KC_ENT,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
-                                QK_BOOT, KC_NO,    NAV,    KC_SPC,   LARCANE,      RARCANE,  KC_SPC,     SYM,     DRP_MENU,  KC_F6, // TO(_GAME)
+                                QK_BOOT,   KC_NO,      NAV,    KC_SPC,   LARCANE,      RARCANE,  KC_SPC,     SYM,     DRP_MENU,  KC_F6, // TO(_GAME)
         //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘
         //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
                                                      CTL_BSPC,  OS_SFT,                          OS_RSFT,  CTL_BSPC
@@ -140,7 +140,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             STC_TOG,  KC_GRV,   KC_LT,    KC_LCBR,  KC_LPRN,  KC_LBRC,                            KC_EQL,   KC_RCTL,  KC_RSFT,  KC_RALT,  KC_RGUI,  KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            MO(_FN),  KC_TILD,  KC_GT,    KC_RCBR,  KC_RPRN,  KC_RBRC,                            KC_PLUS,  KC_MINS,  KC_QUES,  KC_BSLS,  KC_SLSH,  KC_ENT,
+            MO(_FN),  KC_TILD,  KC_GT,    KC_RCBR,  KC_RPRN,  KC_RBRC,                            KC_PLUS,  KC_MINS,  KC_QUES,  KC_BSLS,  KC_SLSH,  QK_BOOT,
         //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
         //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
                                  KC_NO,    KC_NO,   KC_TRNS,  KC_TRNS,  KC_TRNS,        KC_NO,    KC_NO,   KC_TRNS,   DRP_MENU,  KC_F6,

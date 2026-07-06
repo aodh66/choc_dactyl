@@ -1,10 +1,6 @@
 
 #include QMK_KEYBOARD_H
 #include "env.h"
-// ? Achordion
-// #include "features/achordion.h"
-// ? Sentence Case
-// #include "features/sentence_case.h"
 
 // * -----------------------------
 // * -- Home row mods (Recurva) --
@@ -49,7 +45,7 @@
 #define CTL_DEL LCTL(KC_DEL)
 #define DRP_MENU LSFT(KC_F10)
 
-#define NAV QK_TRI_LAYER_LOWER
+// #define NAV QK_TRI_LAYER_LOWER
 #define SYM QK_TRI_LAYER_UPPER
 
 // * ------------------------
@@ -70,7 +66,9 @@ enum custom_keycodes {
     STC_TOG,
     STC_ON,
     STC_OFF,
-    CTL_BSPC
+    CTL_BSPC,
+    NAV,
+    LOCK
 };
 
 // * -------------------------------------------
@@ -191,36 +189,9 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
     }
 }
 
-// * ---------------
-// * -- Accordion --
-// * ---------------
-// ? Achordion
-// bool achordion_eager_mod(uint8_t mod) {
-//     switch (mod) {
-//         case MOD_LSFT:
-//         case MOD_RSFT:
-//         case MOD_LCTL:
-//         case MOD_RCTL:
-//             return true; // Eagerly apply Shift and Ctrl mods.
-//
-//         default:
-//             return false;
-//     }
-// }
-//
-// bool achordion_chord(
-//     uint16_t tap_hold_keycode,
-//     keyrecord_t* tap_hold_record,
-//     uint16_t other_keycode, keyrecord_t* other_record
-// ) {
-//     // Otherwise, follow the opposite hands rule.
-//     return achordion_opposite_hands(tap_hold_record, other_record);
-// }
-//
-// uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
-//     return 800; // Use a timeout of 800 ms.
-// }
-
+// * ------------------
+// * -- Chordal Hold --
+// * ------------------
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
     LAYOUT(
         'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
@@ -229,17 +200,10 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
         'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
         'L', 'L',  'R', 'R'
       );
-    // LAYOUT(
-    //     'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
-    //     'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
-    //     'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
-    //                    'L', 'L', 'L',  'R', 'R', 'R'
-    // );
 
 // * -------------------
 // * -- Sentence Case --
 // * -------------------
-// ? Sentence Case
 char sentence_case_press_user(
     uint16_t keycode,
     keyrecord_t* record,
@@ -502,15 +466,6 @@ void process_right_magic(uint16_t keycode, uint8_t mods) {
 // * -- Macros --
 // * ------------
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-    // ? Achordion
-    // if (!process_achordion(keycode, record)) {
-    //     return false;
-    // }
-
-    // if (!process_sentence_case(keycode, record)) {
-        // return false;
-    // }
-
     // ! Might be in wrong place
     const uint8_t mods         = get_mods();
     const uint8_t oneshot_mods = get_oneshot_mods();
@@ -527,6 +482,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         case RARCANE:
             if (record->event.pressed) {
             process_right_magic(get_last_keycode(), get_last_mods());
+            }
+            break;
+
+            // NAV TO WORK WITH LAYER LOCK
+        case NAV:
+            if (record->event.pressed) {
+                layer_lock_off(_NAV);
+                layer_on(_NAV);
+                update_tri_layer(_NAV, _SYM, _NUM);
+            } else if (!is_layer_locked(_NAV)) {
+                layer_off(_NAV);
+                update_tri_layer(_NAV, _SYM, _NUM);
             }
             break;
 
@@ -658,15 +625,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     }
     return true;
 };
-
-// ? Achordion
-// void matrix_scan_user(void) {
-//     achordion_task();
-// }
-
-// ? Sentence Case
-// void housekeeping_task_user(void) {
-    // achordion_task();
-    // sentence_case_task();
-  // Other tasks...
-// }

@@ -19,7 +19,6 @@
 
 
 
-
 #define ACHORDION_STREAK
 #define SENTENCE_CASE_TIMEOUT 2000
 
@@ -46,6 +45,3 @@
 // CUTTING FLOOR
 //Combo stuff
 // #define COMBO_COUNT 2
-
-// SM_Tap Dance
-// #define MAX_DEFERRED_EXECUTORS 1000

@@ -1,5 +1,3 @@
-# SRC += features/achordion.c
-# SRC += features/sentence_case.c
 VPATH += keyboards/gboards
 
 CAPS_WORD_ENABLE = yes
@@ -10,9 +8,3 @@ LAYER_LOCK_ENABLE = yes
 
 # DEBUG
 # CONSOLE_ENABLE = yes
-
-# CUTTING FLOOR
-# TAP_DANCE_ENABLE = yes
-# DEFERRED_EXEC_ENABLE = yes # For sm_td
-# SPLIT_KEYBOARD = yes
-# SPLIT_TRANSPORT = custom

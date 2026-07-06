@@ -16,12 +16,24 @@
 #define HOME_K LSFT_T(KC_K)
 #define HOME_G LCTL_T(KC_G)
 
+    // Home Row
+#define HOME_S LGUI_T(KC_S)
+#define HOME_N LALT_T(KC_N)
+#define HOME_T LSFT_T(KC_T)
+#define HOME_C LCTL_T(KC_C)
+
 // Right-hand
     // Bottom Home Row
 #define HOME_L RCTL_T(KC_L)
 #define HOME_CN RSFT_T(KC_SCLN)
-#define HOME_QT LALT_T(KC_QUOT)
+#define HOME_QT RALT_T(KC_QUOT)
 #define HOME_CM RGUI_T(KC_COMM)
+
+    // Home Row
+#define HOME_H RCTL_T(KC_H)
+#define HOME_E RSFT_T(KC_E)
+#define HOME_A RALT_T(KC_A)
+#define HOME_I RGUI_T(KC_I)
 
 // Layers
 #define UNDO LCTL(KC_Z)
@@ -34,11 +46,8 @@
 #define ALT_F4 LALT(KC_F4)
 #define OS_SFT OSM(MOD_LSFT)
 #define OS_RSFT OSM(MOD_RSFT)
-// #define CTL_BSPC LCTL(KC_BSPC)
 #define CTL_DEL LCTL(KC_DEL)
 #define DRP_MENU LSFT(KC_F10)
-#define KC_MWUP KC_MS_WH_UP
-#define KC_MWDN KC_MS_WH_DOWN
 
 #define NAV QK_TRI_LAYER_LOWER
 #define SYM QK_TRI_LAYER_UPPER
@@ -59,9 +68,7 @@ enum custom_keycodes {
     EMAIL2,
     COMMENT,
     STC_TOG,
-    CTL_BSPC,
-    // NAV,
-    // SYM,
+    CTL_BSPC
 };
 
 // * -------------------------------------------
@@ -73,12 +80,11 @@ enum custom_keycodes {
 // * -- Layer Definitions --
 // * -----------------------
 #define _ALPHA 0
-// #define _AKL 5
 #define _NAV 1
 #define _SYM 2
 #define _NUM 3
 #define _FN 4
-// #define _GAME 6
+// #define _GAME 5
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -87,67 +93,46 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐                         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
             KC_ESC,    KC_F,     KC_R,     KC_D,     KC_P,     KC_V,                               SS_QU,    KC_M,     KC_U,     KC_O,     KC_Y,   LINE_SEL,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_ESC,    KC_S,     KC_N,     KC_T,     KC_C,     KC_B,                              KC_DOT,    KC_H,     KC_E,     KC_A,     KC_I,    KC_ENT,
+            KC_ESC,   HOME_S,   HOME_N,   HOME_T,   HOME_C,    KC_B,                              KC_DOT,    HOME_H,   HOME_E,   HOME_A,   HOME_I,  KC_ENT,
+            // KC_ESC,    KC_S,     KC_N,     KC_T,     KC_C,     KC_B,                              KC_DOT,    KC_H,     KC_E,     KC_A,     KC_I,    KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            MO(_FN),  HOME_Z,   HOME_X,   HOME_K,   HOME_G,    KC_W,                               KC_J,    HOME_L,   HOME_CN,  HOME_QT,  HOME_CM,  KC_ENT,
-        //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
-        //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
-                                QK_BOOT,   KC_NO,      NAV,    KC_SPC,   LARCANE,      RARCANE,  KC_SPC,     SYM,     DRP_MENU,  KC_F6, // TO(_GAME)
-        //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘
-        //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-                                                     CTL_BSPC,  OS_SFT,                          OS_RSFT,  CTL_BSPC
-        //                                         └─────────┴─────────┘                       └─────────┴─────────┘
+            MO(_FN),   KC_Z,     KC_X,     KC_K,     KC_G,     KC_W,                               KC_J,     KC_L,    KC_SCLN,  KC_QUOT,  KC_COMM,  KC_ENT,
+            // MO(_FN),  HOME_Z,   HOME_X,   HOME_K,   HOME_G,    KC_W,                               KC_J,    HOME_L,   HOME_CN,  HOME_QT,  HOME_CM,  KC_ENT,
+        //└─────────┴─────────┼─────────┼─────────┼─────────┼─────────┼──────────┐   ┌──────────┼─────────┼─────────┼─────────┼─────────┼─────────┴─────────┘
+                                QK_BOOT,   KC_NO,     NAV,    KC_SPC,   LARCANE,       RARCANE,   KC_SPC,     SYM,    DRP_MENU,  KC_F6,
+        //                    └─────────┴─────────┼─────────┼─────────┼──────────┘   └──────────┼─────────┼─────────┼─────────┴─────────┘
+                                                    CTL_BSPC, OS_SFT,                             OS_RSFT,  CTL_BSPC
+        //                                        └─────────┴─────────┘                         └─────────┴─────────┘
         ),
-
-    // // * Test Gallium Practice Layer
-    // [_AKL] = LAYOUT(
-    //     //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐                         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-    //         KC_ESC,    KC_B,     KC_L,     KC_D,     KC_C,     KC_V,                               KC_J,     KC_Y,     KC_O,     KC_U,    KC_COMM, LINE_SEL,
-    //     //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-    //         KC_TAB,    KC_N,     KC_R,     KC_T,     KC_S,     KC_G,                               KC_P,     KC_H,     KC_A,     KC_E,     KC_I,    KC_ENT,
-    //     //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-    //         MO(_FN),   KC_X,     SS_QU,    KC_M,     KC_W,     KC_Z,                               KC_K,     KC_F,    KC_QUOT,  KC_SCLN,  KC_DOT,   TO(_ALPHA),
-    //     //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
-    //     //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
-    //                             QK_BOOT,   KC_NO,   MO(_NAV),   KC_SPC,  LARCANE,      RARCANE,  OS_SFT,   MO(_SYM),  DRP_MENU,  KC_F6,
-    //     //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘
-    //     //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-    //                                                 CTL_BSPC,   KC_NO,                            KC_NO,   CTL_DEL
-    //     //                                         └─────────┴─────────┘                       └─────────┴─────────┘
-    //     ),
 
     // * Nav/Ext
     [_NAV] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐                         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_ESC,   KC_ESC,   KC_CAPS,  KC_MEH,    MOVE,    ALT_F4,                             KC_PGUP,  KC_HOME,  BRACES,   KC_END,   KC_BSPC, LINE_COPY,
+            QK_BOOT,  KC_ESC,   KC_CAPS,  KC_MEH,    MOVE,    ALT_F4,                             KC_PGUP,  KC_HOME,  BRACES,   KC_END,   KC_BSPC, LINE_COPY,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_TAB,   KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  RESIZE,                             KC_PGDN,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_MWUP,
+            KC_TAB,   KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  RESIZE,                             KC_PGDN,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  MS_WHLU,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            MO(_FN),   UNDO,     CUT,      COPY,     PASTE,    KC_F6,                             KC_BSPC,  NXT_TAB,  KC_TAB,   KC_DEL,   COMMENT,  KC_MWDN,
-        //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
-        //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
-                                 KC_NO,    KC_NO,    KC_TRNS,   KC_NO,    KC_NO,       KC_ENT,   KC_TRNS,  KC_TRNS,   DRP_MENU,  KC_F6,
-        //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘
-        //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-                                                      KC_NO,    KC_NO,                           CW_TOGG,  CTL_DEL
-        //                                         └─────────┴─────────┘                       └─────────┴─────────┘
+            KC_TAB,    UNDO,     CUT,      COPY,     PASTE,    KC_F6,                             KC_BSPC,  NXT_TAB,  KC_TAB,   KC_DEL,   COMMENT,  MS_WHLD,
+        //└─────────┴─────────┼─────────┼─────────┼─────────┼─────────┼──────────┐   ┌──────────┼─────────┼─────────┼─────────┼─────────┼─────────┴─────────┘
+                                 KC_NO,    KC_NO,   KC_TRNS,   KC_NO,    KC_NO,         KC_ENT,   KC_TRNS,  KC_TRNS,  DRP_MENU,  KC_F6,
+        //                    └─────────┴─────────┼─────────┼─────────┼──────────┘   └──────────┼─────────┼─────────┼─────────┴─────────┘
+                                                     KC_NO,    KC_NO,                             CW_TOGG,  CTL_DEL
+        //                                        └─────────┴─────────┘                         └─────────┴─────────┘
         ),
 
     // * Symbol
     [_SYM] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐                         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_ESC,   KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,                            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_UNDS,  KC_PIPE,  KC_DEL,
+            KC_ESC,   KC_EXLM,   KC_AT,   KC_HASH,  KC_DLR,   KC_PERC,                            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_UNDS,  KC_PIPE,  QK_BOOT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            STC_TOG,  KC_GRV,   KC_LT,    KC_LCBR,  KC_LPRN,  KC_LBRC,                            KC_EQL,   KC_RCTL,  KC_RSFT,  KC_RALT,  KC_RGUI,  KC_ENT,
+            STC_OFF,  KC_GRV,    KC_LT,   KC_LCBR,  KC_LPRN,  KC_LBRC,                            KC_EQL,   KC_RCTL,  KC_RSFT,  KC_RALT,  KC_RGUI,  KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            MO(_FN),  KC_TILD,  KC_GT,    KC_RCBR,  KC_RPRN,  KC_RBRC,                            KC_PLUS,  KC_MINS,  KC_QUES,  KC_BSLS,  KC_SLSH,  QK_BOOT,
-        //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
-        //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
-                                 KC_NO,    KC_NO,   KC_TRNS,  KC_TRNS,  KC_TRNS,        KC_NO,    KC_NO,   KC_TRNS,   DRP_MENU,  KC_F6,
-        //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘
-        //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-                                                     CTL_DEL,  CW_TOGG,                           KC_NO,    KC_NO
-        //                                         └─────────┴─────────┘                       └─────────┴─────────┘
+            STC_ON,   KC_TILD,   KC_GT,   KC_RCBR,  KC_RPRN,  KC_RBRC,                            KC_PLUS,  KC_MINS,  KC_QUES,  KC_BSLS,  KC_SLSH,  KC_ENT,
+        //└─────────┴─────────┼─────────┼─────────┼─────────┼─────────┼──────────┐   ┌──────────┼─────────┼─────────┼─────────┼─────────┼─────────┴─────────┘
+                                 KC_NO,    KC_NO,   KC_TRNS,  KC_TRNS,  KC_NO,          KC_NO,     KC_NO,   KC_TRNS,  DRP_MENU,  KC_F6,
+        //                    └─────────┴─────────┼─────────┼─────────┼──────────┘   └──────────┼─────────┼─────────┼─────────┴─────────┘
+                                                    CTL_DEL,  CW_TOGG,                             KC_NO,    KC_NO
+        //                                        └─────────┴─────────┘                         └─────────┴─────────┘
         ),
 
 
@@ -159,49 +144,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TAB,   KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL, KC_MPLY,                             KC_DOT,    KC_4,     KC_5,     KC_6,    KC_0,     KC_ENT,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             KC_LCTL,   EMAIL,   EMAIL2,   KC_BSPC,  KC_DEL,  KC_PERC,                             KC_PLUS,   KC_1,     KC_2,     KC_3,    KC_SLSH,  KC_BSLS,
-        //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
-        //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
-                                 KC_NO,    KC_NO,    KC_TRNS,   KC_NO,    KC_NO,        KC_NO,    KC_NO,   KC_TRNS,   DRP_MENU,  KC_F6,
-        //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘
-        //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-                                                     CTL_BSPC,  KC_NO,                            KC_NO,   CTL_BSPC
-        //                                         └─────────┴─────────┘                       └─────────┴─────────┘
+        //└─────────┴─────────┼─────────┼─────────┼─────────┼─────────┼──────────┐   ┌──────────┼─────────┼─────────┼─────────┼─────────┼─────────┴─────────┘
+                                 KC_NO,    KC_NO,   KC_TRNS,   KC_NO,    KC_NO,         KC_NO,     KC_NO,   KC_TRNS,  DRP_MENU,  KC_F6,
+        //                    └─────────┴─────────┼─────────┼─────────┼──────────┘   └──────────┼─────────┼─────────┼─────────┴─────────┘
+                                                   CTL_BSPC,   KC_NO,                              KC_NO,   CTL_BSPC
+        //                                        └─────────┴─────────┘                         └─────────┴─────────┘
         ),
 
     // * Function
     [_FN] = LAYOUT(
         //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐                         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-            KC_NO,    KC_TRNS,   KC_NO,   QK_BOOT,  KC_VOLD,  KC_VOLU,                            KC_NO,     KC_F7,    KC_F8,    KC_F9,   KC_NO,   KC_NO, // TO(_AKL),
+            KC_NO,    KC_TRNS,   KC_NO,   QK_BOOT,  KC_VOLD,  KC_VOLU,                            KC_NO,     KC_F7,    KC_F8,    KC_F9,   KC_NO,    KC_NO,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             KC_NO,    KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  KC_MPLY,                            KC_F12,    KC_F4,    KC_F5,    KC_F6,   KC_F10,   KC_NO,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_TRNS,   KC_NO,    KC_NO,    KC_NO,    KC_NO,   KC_NO,                              KC_F11,    KC_F1,    KC_F2,    KC_F3,   KC_NO,   TO(_ALPHA),
-        //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
-        //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
-                                 KC_NO,    KC_NO,    KC_TRNS,   KC_NO,    KC_NO,        KC_NO,    KC_NO,   KC_TRNS,   KC_MPRV, KC_MNXT,
-        //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘
-        //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-                                                      KC_NO,    KC_NO,                            KC_NO,    KC_NO
-        //                                         └─────────┴─────────┘                       └─────────┴─────────┘
+            KC_TRNS,   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,                             KC_F11,    KC_F1,    KC_F2,    KC_F3,   KC_NO,   TO(_ALPHA),
+        //└─────────┴─────────┼─────────┼─────────┼─────────┼─────────┼──────────┐   ┌──────────┼─────────┼─────────┼─────────┼─────────┼─────────┴─────────┘
+                                 KC_NO,    KC_NO,   TO(_NAV),  KC_NO,    KC_NO,         KC_NO,     KC_NO,   KC_TRNS,  KC_MPRV,  KC_MNXT,
+        //                    └─────────┴─────────┼─────────┼─────────┼──────────┘   └──────────┼─────────┼─────────┼─────────┴─────────┘
+                                                     KC_NO,    KC_NO,                              KC_NO,    KC_NO
+        //                                        └─────────┴─────────┘                         └─────────┴─────────┘
         )
 // ! add a comma above if you're going to add another layer below
-
-    // // * Game (Made for POE2 atm)
-    // [_GAME] = LAYOUT(
-    //     //┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐                         ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
-    //         KC_ESC,   KC_ESC,    KC_Q,     KC_B,     KC_E,     KC_R,                               SS_QU,    KC_M,     KC_U,     KC_O,     KC_Y,   LINE_SEL,
-    //     //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-    //         KC_TAB,   KC_LSFT,   KC_A,     KC_W,     KC_D,     KC_F,                              KC_DOT,    KC_H,     KC_E,     KC_A,     KC_I,    KC_ENT,
-    //     //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-    //         KC_GRV,    KC_1,     KC_2,     KC_S,     KC_3,     KC_4,                               KC_J,    HOME_L,   HOME_CN,  HOME_QT,  HOME_CM,  KC_ENT,
-    //     //└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘                         └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
-    //     //                    ┌─────────┬─────────┐┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┐┌─────────┬─────────┐
-    //                              KC_NO,  TO(_ALPHA), KC_LCTL,  KC_SPC,   KC_LALT,      RARCANE,  KC_SPC,     SYM,     DRP_MENU,  KC_F6,
-    //     //                    └─────────┴─────────┘└─────────┴─────────┴─────────┘   └─────────┴─────────┴─────────┘└─────────┴─────────┘
-    //     //                                         ┌─────────┬─────────┐                       ┌─────────┬─────────┐
-    //                                                   KC_C,     KC_V,                            OS_RSFT,  CTL_BSPC
-    //     //                                         └─────────┴─────────┘                       └─────────┴─────────┘
-    //     )
 };
 
 // * ------------------
@@ -214,6 +178,10 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
         case HOME_X:
         case HOME_QT:
         case HOME_CM:
+        case HOME_S:
+        case HOME_N:
+        case HOME_A:
+        case HOME_I:
             return TAPPING_TERM + 15;
 
         default:
@@ -307,6 +275,7 @@ bool caps_word_press_user(uint16_t keycode) {
         // Keycodes that continue Caps Word, with shift applied.
         case KC_A ... KC_Z:
         // case KC_MINS:
+        case SS_QU:
         case LARCANE:
         case RARCANE:
             add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
@@ -406,6 +375,22 @@ void process_left_magic(uint16_t keycode, uint8_t mods) {
         // case  KC_F21: { MAGIC_STRING("",     KC_SPC); } break;
         // case  KC_F23: { MAGIC_STRING(" ",     KC_SPC); } break;
 
+    //*  Home Row
+        case  HOME_A:    { MAGIC_STRING("nd",     KC_F24); } break;
+        case  HOME_C:    { MAGIC_STRING("c",      KC_F24); } break;
+        case  HOME_E:    { MAGIC_STRING("nt",     KC_T);   } break;
+        case  KC_G:  { MAGIC_STRING("g",      KC_F24); } break;
+        case  HOME_H:    { MAGIC_STRING("er",     KC_F24); } break;
+        case  HOME_I:    { MAGIC_STRING("ng",     KC_F24); } break;
+        case  KC_K:  { MAGIC_STRING("k",      KC_F24); } break;
+        case  KC_L:  { MAGIC_STRING("mao",    KC_F24); } break;
+        case  HOME_N:    { MAGIC_STRING("n",      KC_F24); } break;
+        case  HOME_S:    { MAGIC_STRING("s",      KC_S);   } break;
+        case  HOME_T:    { MAGIC_STRING("t",      KC_F24); } break;
+        case  KC_X:  { MAGIC_STRING("x",      KC_F24); } break;
+        case  KC_Z:  { MAGIC_STRING("z",      KC_F24); } break;
+        case  KC_QUOT: { MAGIC_STRING("ve",     KC_F24); } break;
+
     //*  Bottom Home Row
         case  KC_A:    { MAGIC_STRING("nd",     KC_F24); } break;
         case  KC_C:    { MAGIC_STRING("c",      KC_F24); } break;
@@ -455,6 +440,24 @@ void process_right_magic(uint16_t keycode, uint8_t mods) {
         // case  KC_F22: { MAGIC_STRING("",     KC_SPC); } break;
         // case  KC_F24: { MAGIC_STRING(" ",     KC_SPC); } break;
 
+        // Home Row
+        case  HOME_A:    { MAGIC_STRING("a",      KC_F23); } break;
+        case  HOME_C:    { MAGIC_STRING("omp",    KC_F23); } break;
+        case  HOME_E:    { MAGIC_STRING("e",      KC_F23); } break;
+        case  KC_G:  { MAGIC_STRING("eneral",   KC_F23); } break;
+        case  HOME_H:    { MAGIC_STRING("h",      KC_F23); } break;
+        case  HOME_I:    { MAGIC_STRING("i",      KC_F23); } break;
+        case  KC_K:  { MAGIC_STRING("now",    KC_F23); } break;
+        case  KC_L:  { MAGIC_STRING("l",      HOME_L); } break;
+        case  HOME_N:    { MAGIC_STRING("'t",     KC_F23); } break;
+        case  HOME_S:    { MAGIC_STRING("ion",    KC_F23); } break;
+        case  HOME_T:    { MAGIC_STRING("ion",    KC_F23); } break;
+        case  KC_X:  { MAGIC_STRING("",       KC_F23); } break;
+        case  KC_Z:  { MAGIC_STRING("",       KC_F23); } break;
+
+        case  KC_SCLN: { tap_code(KC_BSPC); MAGIC_STRING("::", KC_F23); } break;
+        case  KC_QUOT: { MAGIC_STRING("ll",     KC_F23); } break;
+
         // Bottom Home Row
         case  KC_A:    { MAGIC_STRING("a",      KC_F23); } break;
         case  KC_C:    { MAGIC_STRING("omp",    KC_F23); } break;
@@ -503,13 +506,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             process_left_magic(get_last_keycode(), get_last_mods());
             }
             break;
-            // return false;
+
         case RARCANE:
             if (record->event.pressed) {
             process_right_magic(get_last_keycode(), get_last_mods());
             }
             break;
-            // return false;
 
         case RESIZE:
             if (record->event.pressed) {
@@ -519,33 +521,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 clear_mods();
                 unregister_code(KC_X);
             }
-            // Do not let QMK process the keycode further
             break;
-            // return false;
 
         case MOVE:
             if (record->event.pressed) {
                 set_mods(MOD_MASK_CSA);
-                register_code(KC_Z);
+                register_code(KC_N);
             } else {
                 clear_mods();
-                unregister_code(KC_Z);
+                unregister_code(KC_N);
             }
-            // Do not let QMK process the keycode further
             break;
-            // return false;
 
         case SS_QU:
             if (record->event.pressed) {
-                SEND_STRING("qu");
-                // if (is_caps_word_on()) {
-                //     register_code(KC_LSFT);// Hold Shift.
-                //     SEND_STRING("qu");
-                //     unregister_code(KC_LSFT); // Stops holding Shift.
-                //     caps_word_on(); // Reapply Caps Word.
-                // } else {
-                //     SEND_STRING("qu");
-                // }
+                if (is_caps_word_on()) {
+                    SEND_STRING("QU");
+                } else {
+                    SEND_STRING("qu");
+                }
             }
             break;
 
@@ -593,9 +587,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             }
             break;
 
-        case STC_TOG: // Toggles Sentence Case.
+        // case STC_TOG: // Toggles Sentence Case.
+        //     if (record->event.pressed) {
+        //         sentence_case_toggle();
+        //     }
+        //     break;
+
+        case STC_ON: // Enables Sentence Case.
             if (record->event.pressed) {
-                sentence_case_toggle();
+                sentence_case_on();
+            }
+            break;
+
+        case STC_OFF: // Disables Sentence Case.
+            if (record->event.pressed) {
+                sentence_case_off();
             }
             break;
 
@@ -632,28 +638,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 register_mods(mods); // Restore mods.
             }
             break;
-
-        // case NAV:
-        //     if (record->event.pressed) {
-        //         layer_on(_NAV);
-        //         update_tri_layer(_NAV, _SYM, _NUM);
-        //     } else {
-        //         layer_off(_NAV);
-        //         update_tri_layer(_NAV, _SYM, _NUM);
-        //     }
-        //     break;
-        //
-        // case SYM:
-        //     if (record->event.pressed) {
-        //         layer_on(_SYM);
-        //         update_tri_layer(_NAV, _SYM, _NUM);
-        //     } else {
-        //         layer_off(_SYM);
-        //         update_tri_layer(_NAV, _SYM, _NUM);
-        //     }
-        //     break;
     }
-
     return true;
 };
 

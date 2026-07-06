@@ -2,7 +2,7 @@
 #include QMK_KEYBOARD_H
 #include "env.h"
 // ? Achordion
-#include "features/achordion.h"
+// #include "features/achordion.h"
 // ? Sentence Case
 #include "features/sentence_case.h"
 
@@ -114,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             KC_TAB,   KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  RESIZE,                             KC_PGDN,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  MS_WHLU,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-            KC_TAB,    UNDO,     CUT,      COPY,     PASTE,    KC_F6,                             KC_BSPC,  NXT_TAB,  KC_TAB,   KC_DEL,   COMMENT,  MS_WHLD,
+           TO(_NAV),   UNDO,      CUT,     COPY,     PASTE,    KC_F6,                             KC_BSPC,  NXT_TAB,  KC_TAB,   KC_DEL,   COMMENT,  MS_WHLD,
         //└─────────┴─────────┼─────────┼─────────┼─────────┼─────────┼──────────┐   ┌──────────┼─────────┼─────────┼─────────┼─────────┼─────────┴─────────┘
                                  KC_NO,    KC_NO,   KC_TRNS,   KC_NO,    KC_NO,         KC_ENT,   KC_TRNS,  KC_TRNS,  DRP_MENU,  KC_F6,
         //                    └─────────┴─────────┼─────────┼─────────┼──────────┘   └──────────┼─────────┼─────────┼─────────┴─────────┘
@@ -195,31 +195,46 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
 // * -- Accordion --
 // * ---------------
 // ? Achordion
-bool achordion_eager_mod(uint8_t mod) {
-    switch (mod) {
-        case MOD_LSFT:
-        case MOD_RSFT:
-        case MOD_LCTL:
-        case MOD_RCTL:
-            return true; // Eagerly apply Shift and Ctrl mods.
+// bool achordion_eager_mod(uint8_t mod) {
+//     switch (mod) {
+//         case MOD_LSFT:
+//         case MOD_RSFT:
+//         case MOD_LCTL:
+//         case MOD_RCTL:
+//             return true; // Eagerly apply Shift and Ctrl mods.
+//
+//         default:
+//             return false;
+//     }
+// }
+//
+// bool achordion_chord(
+//     uint16_t tap_hold_keycode,
+//     keyrecord_t* tap_hold_record,
+//     uint16_t other_keycode, keyrecord_t* other_record
+// ) {
+//     // Otherwise, follow the opposite hands rule.
+//     return achordion_opposite_hands(tap_hold_record, other_record);
+// }
+//
+// uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
+//     return 800; // Use a timeout of 800 ms.
+// }
 
-        default:
-            return false;
-    }
-}
-
-bool achordion_chord(
-    uint16_t tap_hold_keycode,
-    keyrecord_t* tap_hold_record,
-    uint16_t other_keycode, keyrecord_t* other_record
-) {
-    // Otherwise, follow the opposite hands rule.
-    return achordion_opposite_hands(tap_hold_record, other_record);
-}
-
-uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
-    return 800; // Use a timeout of 800 ms.
-}
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT(
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R',
+        'L', 'L',  'R', 'R'
+      );
+    // LAYOUT(
+    //     'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+    //     'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+    //     'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+    //                    'L', 'L', 'L',  'R', 'R', 'R'
+    // );
 
 // * -------------------
 // * -- Sentence Case --
@@ -488,9 +503,9 @@ void process_right_magic(uint16_t keycode, uint8_t mods) {
 // * ------------
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     // ? Achordion
-    if (!process_achordion(keycode, record)) {
-        return false;
-    }
+    // if (!process_achordion(keycode, record)) {
+    //     return false;
+    // }
 
     if (!process_sentence_case(keycode, record)) {
         return false;
@@ -645,13 +660,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 };
 
 // ? Achordion
-void matrix_scan_user(void) {
-    achordion_task();
-}
+// void matrix_scan_user(void) {
+//     achordion_task();
+// }
 
 // ? Sentence Case
 void housekeeping_task_user(void) {
-    achordion_task();
+    // achordion_task();
     sentence_case_task();
   // Other tasks...
 }

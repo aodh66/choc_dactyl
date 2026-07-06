@@ -68,6 +68,8 @@ enum custom_keycodes {
     EMAIL2,
     COMMENT,
     STC_TOG,
+    STC_ON,
+    STC_OFF,
     CTL_BSPC
 };
 

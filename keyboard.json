@@ -48,6 +48,10 @@
     "matrix": [0, 0]
   },
 
+  "modules": [
+      "getreuer/sentence_case"
+  ],
+
   "layouts": {
     "LAYOUT": {
       "layout": [

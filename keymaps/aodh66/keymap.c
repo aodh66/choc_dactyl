@@ -4,7 +4,7 @@
 // ? Achordion
 // #include "features/achordion.h"
 // ? Sentence Case
-#include "features/sentence_case.h"
+// #include "features/sentence_case.h"
 
 // * -----------------------------
 // * -- Home row mods (Recurva) --
@@ -114,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             KC_TAB,   KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  RESIZE,                             KC_PGDN,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  MS_WHLU,
         //├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                         ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
-           TO(_NAV),   UNDO,      CUT,     COPY,     PASTE,    KC_F6,                             KC_BSPC,  NXT_TAB,  KC_TAB,   KC_DEL,   COMMENT,  MS_WHLD,
+            QK_LLCK,   UNDO,      CUT,     COPY,     PASTE,    KC_F6,                             KC_BSPC,  NXT_TAB,  KC_TAB,   KC_DEL,   COMMENT,  MS_WHLD,
         //└─────────┴─────────┼─────────┼─────────┼─────────┼─────────┼──────────┐   ┌──────────┼─────────┼─────────┼─────────┼─────────┼─────────┴─────────┘
                                  KC_NO,    KC_NO,   KC_TRNS,   KC_NO,    KC_NO,         KC_ENT,   KC_TRNS,  KC_TRNS,  DRP_MENU,  KC_F6,
         //                    └─────────┴─────────┼─────────┼─────────┼──────────┘   └──────────┼─────────┼─────────┼─────────┴─────────┘
@@ -507,9 +507,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     //     return false;
     // }
 
-    if (!process_sentence_case(keycode, record)) {
-        return false;
-    }
+    // if (!process_sentence_case(keycode, record)) {
+        // return false;
+    // }
 
     // ! Might be in wrong place
     const uint8_t mods         = get_mods();
@@ -665,8 +665,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 // }
 
 // ? Sentence Case
-void housekeeping_task_user(void) {
+// void housekeeping_task_user(void) {
     // achordion_task();
-    sentence_case_task();
+    // sentence_case_task();
   // Other tasks...
-}
+// }

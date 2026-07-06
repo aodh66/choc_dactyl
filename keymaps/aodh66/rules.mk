@@ -1,11 +1,12 @@
-SRC += features/achordion.c
-SRC += features/sentence_case.c
+# SRC += features/achordion.c
+# SRC += features/sentence_case.c
 VPATH += keyboards/gboards
 
 CAPS_WORD_ENABLE = yes
 COMBO_ENABLE = yes
 REPEAT_KEY_ENABLE = yes
 TRI_LAYER_ENABLE = yes
+LAYER_LOCK_ENABLE = yes
 
 # DEBUG
 # CONSOLE_ENABLE = yes

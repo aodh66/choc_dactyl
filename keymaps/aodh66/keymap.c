@@ -178,11 +178,13 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t* record) {
         case HOME_X:
         case HOME_QT:
         case HOME_CM:
+            return TAPPING_TERM + 15;
+
         case HOME_S:
         case HOME_N:
         case HOME_A:
         case HOME_I:
-            return TAPPING_TERM + 15;
+            return TAPPING_TERM + 30;
 
         default:
             return TAPPING_TERM;
